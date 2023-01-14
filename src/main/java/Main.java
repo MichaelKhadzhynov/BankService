@@ -12,11 +12,31 @@ public class Main {
 
 
 
-            Persons persons = PersonsDAO.getInstance().getEntityById(1);
+//            Persons persons = PersonsDAO.getInstance().getEntityById(1);
+//
+//            PersonsDAO.getInstance().updateEntity(persons);
+//
+//            PersonsDAO.getInstance();
+//
 
-            PersonsDAO.getInstance().updateEntity(persons);
+//        PersonsDAO.getInstance().removeEntity(1);
 
-            LOGGER.info(persons);
+//        PersonsDAO personsDAO = PersonsDAO.getInstance();
+//
+//        Address address = new Address();
+//        address.setId(1L);
+//
+//        Persons persons = new Persons();
+//        persons.setFirstName("Michael");
+//        persons.setLastName("Khadzhynov");
+//        persons.setPassportNumber(123456);
+//        persons.setEmail("myEmail@gmail.com");
+//        persons.setAddress(address);
+//
+//        personsDAO.createEntity(persons);
+
+
+
 
 //        Persons persons = PersonsDAO.getInstance().getEntityById(1);
 //        Address address = AddressDAO.getInstance().getEntityById(persons.getAddress().getId());
@@ -26,7 +46,7 @@ public class Main {
 //
 //        PersonsDAO.getInstance().updateEntity(persons);
 //
-//        LOGGER.info(persons);
+//        LOGGER.info(personsDAO.createEntity(persons));
 
 
     }

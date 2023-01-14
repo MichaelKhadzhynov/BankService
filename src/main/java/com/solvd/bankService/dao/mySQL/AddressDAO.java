@@ -13,9 +13,6 @@ import java.sql.SQLException;
 public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
 
     private static final AddressDAO INSTANCE = new AddressDAO();
-    private static final Logger LOGGER = Logger.getLogger(PersonsDAO.class);
-
-
 
     public Address getEntityById(long id, Connection connection){
         Address address = new Address();
@@ -46,7 +43,6 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
 
         return address;
     }
-
 
     @Override
     public Address getEntityById(long id) {

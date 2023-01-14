@@ -3,17 +3,12 @@ package com.solvd.bankService.dao.mySQL;
 import com.solvd.bankService.dao.IPersonsDAO;
 import com.solvd.bankService.models.Persons;
 import com.solvd.bankService.utils.ConnectionPool;
-import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
     private static final PersonsDAO INSTANCE = new PersonsDAO();
-    private static final Logger LOGGER = Logger.getLogger(PersonsDAO.class);
 
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
@@ -31,6 +26,17 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
                 address_id = ?
             WHERE id =?      
             """;
+    //language=MYSQL-SQL
+    private static final String SQL_DELETE = """
+            DELETE FROM persons
+            WHERE id =? 
+            """;
+    //language=MYSQL-SQL
+    private static final String SQL_INSERT = """
+            INSERT INTO persons (first_name, last_name, passport_number, email, address_id)
+            VALUES ( ?, ?, ?, ?, ?)
+            """;
+
 
     @Override
     public Persons getEntityById(long id) {
@@ -75,7 +81,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     }
 
     @Override
-    public void updateEntity(Persons entity) {
+    public void updateEntity(Persons person) {
 
         Connection conn = null;
 
@@ -84,12 +90,12 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_UPDATE)) {
 
-                ps.setString(1, entity.getFirstName());
-                ps.setString(2, entity.getLastName());
-                ps.setInt(3, entity.getPassportNumber());
-                ps.setString(4, entity.getEmail());
-                ps.setLong(5, entity.getAddress().getId());
-                ps.setLong(6, entity.getId());
+                ps.setString(1, person.getFirstName());
+                ps.setString(2, person.getLastName());
+                ps.setInt(3, person.getPassportNumber());
+                ps.setString(4, person.getEmail());
+                ps.setLong(5, person.getAddress().getId());
+                ps.setLong(6, person.getId());
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -106,14 +112,67 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     }
 
     @Override
-    public Persons createEntity(Persons entity) {
-        return null;
+    public Persons createEntity(Persons person) {
+        Connection conn = null;
+
+        try {
+            conn = ConnectionPool.getInstance().getConnection();
+
+            try (PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
+
+                ps.setString(1, person.getFirstName());
+                ps.setString(2, person.getLastName());
+                ps.setInt(3, person.getPassportNumber());
+                ps.setString(4, person.getEmail());
+                ps.setLong(5, person.getAddress().getId());
+
+                ps.executeUpdate();
+
+                ResultSet key = ps.getGeneratedKeys();
+                if(key.next()){
+                    person.setId(key.getLong(1));
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return person;
     }
 
     @Override
     public void removeEntity(long id) {
+        Connection conn = null;
 
+        try {
+            conn = ConnectionPool.getInstance().getConnection();
+
+            try (PreparedStatement ps = conn.prepareStatement(SQL_DELETE)) {
+                ps.setLong(1, id);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
+
 
     public static PersonsDAO getInstance() {
         return INSTANCE;
