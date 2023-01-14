@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class DepositDepartment {
     private Long id;
-    private Long clientId;
+    private Clients clientId;
     private Integer cash;
     private Integer depositPercent;
-    private Long employeeId;
+    private Employees employeeId;
 
     public Long getId() {
         return id;
@@ -17,11 +17,11 @@ public class DepositDepartment {
         this.id = id;
     }
 
-    public Long getClientId() {
+    public Clients getClientId() {
         return clientId;
     }
 
-    public void setClientId(Long clientId) {
+    public void setClientId(Clients clientId) {
         this.clientId = clientId;
     }
 
@@ -41,11 +41,11 @@ public class DepositDepartment {
         this.depositPercent = depositPercent;
     }
 
-    public Long getEmployeeId() {
+    public Employees getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Long employeeId) {
+    public void setEmployeeId(Employees employeeId) {
         this.employeeId = employeeId;
     }
 

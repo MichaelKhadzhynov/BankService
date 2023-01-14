@@ -8,8 +8,8 @@ public class CreditCard {
     private Integer cardNumber;
     private Date expiredDate;
     private Integer cvv;
-    private Long clientsId;
-    private Long bankAccountId;
+    private Clients clientsId;
+    private BankAccount bankAccountId;
 
     public Long getId() {
         return id;
@@ -43,19 +43,19 @@ public class CreditCard {
         this.cvv = cvv;
     }
 
-    public Long getClientsId() {
+    public Clients getClientsId() {
         return clientsId;
     }
 
-    public void setClientsId(Long clientsId) {
+    public void setClientsId(Clients clientsId) {
         this.clientsId = clientsId;
     }
 
-    public Long getBankAccountId() {
+    public BankAccount getBankAccountId() {
         return bankAccountId;
     }
 
-    public void setBankAccountId(Long bankAccountId) {
+    public void setBankAccountId(BankAccount bankAccountId) {
         this.bankAccountId = bankAccountId;
     }
 

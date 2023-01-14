@@ -5,7 +5,7 @@ import java.util.Objects;
 public class AccountDetails {
     private Long id;
     private Long iban;
-    private Long bankId;
+    private Bank bankId;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class AccountDetails {
         this.iban = iban;
     }
 
-    public Long getBankId() {
+    public Bank getBankId() {
         return bankId;
     }
 
-    public void setBankId(Long bankId) {
+    public void setBankId(Bank bankId) {
         this.bankId = bankId;
     }
 

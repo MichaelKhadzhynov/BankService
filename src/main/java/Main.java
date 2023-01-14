@@ -1,9 +1,8 @@
+import com.solvd.bankService.dao.mySQL.AddressDAO;
 import com.solvd.bankService.dao.mySQL.PersonsDAO;
+import com.solvd.bankService.models.Address;
 import com.solvd.bankService.models.Persons;
 import org.apache.log4j.Logger;
-
-import javax.sql.ConnectionPoolDataSource;
-import java.sql.Connection;
 
 public class Main {
 
@@ -12,10 +11,23 @@ public class Main {
     public static void main(String[] args) {
 
 
-        PersonsDAO personsDAO = new PersonsDAO();
-        personsDAO.getEntityById(1);
 
-        LOGGER.info(personsDAO.getEntityById(1));
+            Persons persons = PersonsDAO.getInstance().getEntityById(1);
+
+            PersonsDAO.getInstance().updateEntity(persons);
+
+            LOGGER.info(persons);
+
+//        Persons persons = PersonsDAO.getInstance().getEntityById(1);
+//        Address address = AddressDAO.getInstance().getEntityById(persons.getAddress().getId());
+//
+//        address.setId(4L);
+//        persons.setAddress(address);
+//
+//        PersonsDAO.getInstance().updateEntity(persons);
+//
+//        LOGGER.info(persons);
+
 
     }
 }

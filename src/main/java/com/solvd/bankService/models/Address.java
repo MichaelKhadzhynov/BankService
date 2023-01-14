@@ -8,7 +8,7 @@ public class Address {
     private String city;
     private String homeAddress;
     private Integer postalCode;
-    private Integer phoneNumber;
+    private Long phoneNumber;
 
 
 
@@ -18,6 +18,7 @@ public class Address {
 
     public void setId(Long id) {
         this.id = id;
+
     }
 
     public String getCountry() {
@@ -52,11 +53,11 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public Integer getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

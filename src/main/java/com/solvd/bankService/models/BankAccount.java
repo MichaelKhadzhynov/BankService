@@ -7,7 +7,7 @@ public class BankAccount {
     private Integer accountNumber;
     private Integer balance;
     private String accountType;
-    private Long accountDetailsId;
+    private AccountDetails accountDetailsId;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class BankAccount {
         this.accountType = accountType;
     }
 
-    public Long getAccountDetailsId() {
+    public AccountDetails getAccountDetailsId() {
         return accountDetailsId;
     }
 
-    public void setAccountDetailsId(Long accountDetailsId) {
+    public void setAccountDetailsId(AccountDetails accountDetailsId) {
         this.accountDetailsId = accountDetailsId;
     }
 

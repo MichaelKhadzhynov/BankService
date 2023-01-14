@@ -6,7 +6,7 @@ public class CashTransactionDepartment {
     private Long id;
     private Integer cashIn;
     private Integer cashOut;
-    private Long employeeId;
+    private Employees employeeId;
 
         public Long getId() {
                 return id;
@@ -32,11 +32,11 @@ public class CashTransactionDepartment {
                 this.cashOut = cashOut;
         }
 
-        public Long getEmployeeId() {
+        public Employees getEmployeeId() {
                 return employeeId;
         }
 
-        public void setEmployeeId(Long employeeId) {
+        public void setEmployeeId(Employees employeeId) {
                 this.employeeId = employeeId;
         }
 

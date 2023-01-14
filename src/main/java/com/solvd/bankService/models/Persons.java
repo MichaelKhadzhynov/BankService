@@ -1,5 +1,7 @@
 package com.solvd.bankService.models;
 
+import com.solvd.bankService.dao.mySQL.AddressDAO;
+
 import java.util.Objects;
 
 public class Persons {
@@ -8,7 +10,7 @@ public class Persons {
     private String lastName;
     private Integer passportNumber;
     private String email;
-    private Long addressId;
+    private Address address;
 
     public Long getId() {
         return id;
@@ -50,24 +52,24 @@ public class Persons {
         this.email = email;
     }
 
-    public Long getAddressId() {
-        return addressId;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
         return "Persons{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", passportNumber=" + passportNumber +
-                ", email='" + email + '\'' +
-                ", addressId=" + addressId +
-                '}';
+               "id=" + id +
+               ", firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               ", passportNumber=" + passportNumber +
+               ", email='" + email + '\'' +
+               ", addressId=" + address +
+               '}';
     }
 
     @Override
@@ -80,11 +82,11 @@ public class Persons {
                 && Objects.equals(lastName, persons.lastName)
                 && Objects.equals(passportNumber, persons.passportNumber)
                 && Objects.equals(email, persons.email)
-                && Objects.equals(addressId, persons.addressId);
+                && Objects.equals(address, persons.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, passportNumber, email, addressId);
+        return Objects.hash(id, firstName, lastName, passportNumber, email, address);
     }
 }

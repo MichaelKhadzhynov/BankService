@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Employees {
     private Long id;
-    private Long bankId;
-    private Long personId;
+    private Bank bankId;
+    private Persons personId;
     private String position;
     private String department;
     private String jobExperience;
@@ -20,19 +20,19 @@ public class Employees {
         this.id = id;
     }
 
-    public Long getBankId() {
+    public Bank getBankId() {
         return bankId;
     }
 
-    public void setBankId(Long bankId) {
+    public void setBankId(Bank bankId) {
         this.bankId = bankId;
     }
 
-    public Long getPersonId() {
+    public Persons getPersonId() {
         return personId;
     }
 
-    public void setPersonId(Long personId) {
+    public void setPersonId(Persons personId) {
         this.personId = personId;
     }
 

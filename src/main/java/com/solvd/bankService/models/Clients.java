@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Clients {
     private Long id;
-    private Long personId;
+    private Persons personId;
     private String clientType;
 
     public Long getId() {
@@ -15,11 +15,11 @@ public class Clients {
         this.id = id;
     }
 
-    public Long getPersonId() {
+    public Persons getPersonId() {
         return personId;
     }
 
-    public void setPersonId(Long personId) {
+    public void setPersonId(Persons personId) {
         this.personId = personId;
     }
 
