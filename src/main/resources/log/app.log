@@ -65,3 +65,22 @@
 2023-01-14 19:56:55 INFO  Main:19 - Persons{id=1, firstName='Larissa', lastName='Langosh', passportNumber=195969, email='emailLarissa@gmail.com', addressId=address{id=4, country='Poland', city='Warsaw', homeAddress='street 78, ap 4/21', postalCode=23597, phoneNumber=482293252323}}
 2023-01-14 20:33:13 INFO  Main:48 - Persons{id=null, firstName='Michael', lastName='Khadzhynov', passportNumber=123456, email='myEmail@gmail.com', addressId=address{id=1, country='null', city='null', homeAddress='null', postalCode=null, phoneNumber=null}}
 2023-01-14 20:35:20 INFO  Main:48 - Persons{id=23, firstName='Michael', lastName='Khadzhynov', passportNumber=123456, email='myEmail@gmail.com', addressId=address{id=1, country='null', city='null', homeAddress='null', postalCode=null, phoneNumber=null}}
+2023-01-15 12:26:02 INFO  Main:49 - Persons{id=25, firstName='Michael', lastName='Khadzhynov', passportNumber=123456, email='myEmail@gmail.com', addressId=address{id=1, country='null', city='null', homeAddress='null', postalCode=null, phoneNumber=null}}
+2023-01-15 12:26:57 INFO  Main:49 - 26
+2023-01-15 12:27:25 INFO  Main:49 - 
+2023-01-15 12:29:10 INFO  Main:49 - 28
+2023-01-15 19:26:38 INFO  Main:16 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:31:01 INFO  Main:16 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:44:34 INFO  Main:17 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:45:01 INFO  Main:17 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:45:13 INFO  Main:17 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:48:43 INFO  Main:17 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:50:11 INFO  Main:17 - AccountDetails{id=1, iban=3632857917094142997, bankId=null}
+2023-01-15 19:50:47 INFO  Main:17 - AccountDetails{id=11, iban=123, bankId=null}
+2023-01-15 19:52:06 INFO  Main:17 - AccountDetails{id=11, iban=123, bankId=null}
+2023-01-15 19:52:13 INFO  Main:17 - AccountDetails{id=null, iban=null, bankId=null}
+2023-01-15 20:18:49 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
+2023-01-15 20:19:22 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
+2023-01-15 20:19:59 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
+2023-01-15 20:25:19 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
+2023-01-15 20:26:12 INFO  Main:16 - BankAccount{id=1, accountNumber=645325634754, balance=8020, accountType='personal', accountDetailsId=AccountDetails{id=1, iban=3632857917094142997, bankId=null}}

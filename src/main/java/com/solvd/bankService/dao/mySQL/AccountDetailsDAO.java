@@ -1,47 +1,43 @@
 package com.solvd.bankService.dao.mySQL;
 
-import com.solvd.bankService.dao.IPersonsDAO;
-import com.solvd.bankService.models.Persons;
+import com.solvd.bankService.dao.IAccountDetailsDAO;
+import com.solvd.bankService.models.AccountDetails;
+import com.solvd.bankService.models.Bank;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
 
-public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
+public class AccountDetailsDAO extends MySqlDAO implements IAccountDetailsDAO {
 
-    private static final PersonsDAO INSTANCE = new PersonsDAO();
+    private static final AccountDetailsDAO INSTANCE = new AccountDetailsDAO();
 
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
-            FROM persons 
+            FROM account_details 
             WHERE id =?
             """;
     //language=MYSQL-SQL
     private static final String SQL_UPDATE = """
-            UPDATE persons 
-            SET first_name = ?,
-                last_name = ?,
-                passport_number = ?,
-                email = ?,
-                address_id = ?
+            UPDATE account_details
+            SET iban_number = ?,
+                bank_id = ?
             WHERE id = ?      
             """;
     //language=MYSQL-SQL
     private static final String SQL_DELETE = """
-            DELETE FROM persons
+            DELETE FROM account_details
             WHERE id =? 
             """;
     //language=MYSQL-SQL
     private static final String SQL_INSERT = """
-            INSERT INTO persons (first_name, last_name, passport_number, email, address_id)
-            VALUES ( ?, ?, ?, ?, ?)
+            INSERT INTO account_details (iban_number, bank_id)
+            VALUES ( ?, ?)
             """;
 
-
     @Override
-    public Persons getEntityById(long id) {
-
-        Persons persons = new Persons();
+    public AccountDetails getEntityById(long id) {
+        AccountDetails accountDetails = new AccountDetails();
         Connection conn = null;
 
         try {
@@ -53,15 +49,10 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
                 ResultSet resultSet = ps.executeQuery();
                 while (resultSet.next()) {
-                    persons.setId(resultSet.getLong("id"));
-                    persons.setFirstName(resultSet.getString("first_name"));
-                    persons.setLastName(resultSet.getString("last_name"));
-                    persons.setPassportNumber(resultSet.getInt("passport_number"));
-                    persons.setEmail(resultSet.getString("email"));
-
-                    persons.setAddress(AddressDAO.getInstance()
-                            .getEntityById(resultSet.getLong("address_id"),
-                                    resultSet.getStatement().getConnection()));
+                    accountDetails.setId(resultSet.getLong("id"));
+                    accountDetails.setIban(resultSet.getLong("iban_number"));
+                    accountDetails.setBankId(BankDAO.getInstance()
+                            .getEntityById(resultSet.getLong("bank_id")));
                 }
 
             }
@@ -76,13 +67,11 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
                 }
             }
         }
-
-        return persons;
+        return accountDetails;
     }
 
     @Override
-    public void updateEntity(Persons person) {
-
+    public void updateEntity(AccountDetails accountDetails) {
         Connection conn = null;
 
         try {
@@ -90,12 +79,9 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_UPDATE)) {
 
-                ps.setString(1, person.getFirstName());
-                ps.setString(2, person.getLastName());
-                ps.setInt(3, person.getPassportNumber());
-                ps.setString(4, person.getEmail());
-                ps.setLong(5, person.getAddress().getId());
-                ps.setLong(6, person.getId());
+                ps.setLong(1, accountDetails.getIban());
+                ps.setLong(2, accountDetails.getBankId().getId());
+                ps.setLong(3, accountDetails.getId());
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -112,7 +98,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     }
 
     @Override
-    public Persons createEntity(Persons person)     {
+    public AccountDetails createEntity(AccountDetails accountDetails) {
         Connection conn = null;
 
         try {
@@ -120,17 +106,15 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
 
-                ps.setString(1, person.getFirstName());
-                ps.setString(2, person.getLastName());
-                ps.setInt(3, person.getPassportNumber());
-                ps.setString(4, person.getEmail());
-                ps.setLong(5, person.getAddress().getId());
+                ps.setLong(1, accountDetails.getIban());
+                ps.setLong(2, accountDetails.getBankId().getId());
+
 
                 ps.executeUpdate();
 
                 ResultSet key = ps.getGeneratedKeys();
                 if(key.next()){
-                    person.setId(key.getLong(1));
+                    accountDetails.setId(key.getLong(1));
                 }
 
             }
@@ -146,7 +130,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
             }
         }
 
-        return person;
+        return accountDetails;
     }
 
     @Override
@@ -173,8 +157,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
         }
     }
 
-
-    public static PersonsDAO getInstance() {
+    public static AccountDetailsDAO getInstance(){
         return INSTANCE;
     }
 }
