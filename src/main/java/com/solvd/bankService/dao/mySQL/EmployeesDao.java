@@ -1,47 +1,47 @@
 package com.solvd.bankService.dao.mySQL;
 
-import com.solvd.bankService.dao.IPersonsDAO;
-import com.solvd.bankService.models.Persons;
+import com.solvd.bankService.dao.IEmployeesDAO;
+import com.solvd.bankService.models.Employees;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
 
-public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
+public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
 
-    private static final PersonsDAO INSTANCE = new PersonsDAO();
+    private static final EmployeesDao INSTANCE = new EmployeesDao();
 
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
-            FROM persons 
+            FROM employees
             WHERE id =?
             """;
     //language=MYSQL-SQL
     private static final String SQL_UPDATE = """
-            UPDATE persons 
-            SET first_name = ?,
-                last_name = ?,
-                passport_number = ?,
-                email = ?,
-                address_id = ?
+            UPDATE employees 
+            SET bank_id = ?,
+                persons_id = ?,
+                position  = ?,
+                department = ?,
+                job_experience = ?,
+                education = ?,
+                salary = ?         
             WHERE id = ?      
             """;
     //language=MYSQL-SQL
     private static final String SQL_DELETE = """
-            DELETE FROM persons
+            DELETE FROM employees
             WHERE id =? 
             """;
     //language=MYSQL-SQL
     private static final String SQL_INSERT = """
-            INSERT INTO persons (first_name, last_name, passport_number, email, address_id)
-            VALUES ( ?, ?, ?, ?, ?)
+            INSERT INTO employees (bank_id, persons_id, position, department, job_experience, education, salary)
+            VALUES ( ?, ?, ?, ?, ?, ?, ?)
             """;
 
-
     @Override
-    public Persons getEntityById(long id) {
-
-        Persons persons = new Persons();
+    public Employees getEntityById(long id) {
+        Employees employees = new Employees();
         Connection conn = null;
 
         try {
@@ -53,15 +53,17 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
                 ResultSet resultSet = ps.executeQuery();
                 while (resultSet.next()) {
-                    persons.setId(resultSet.getLong("id"));
-                    persons.setFirstName(resultSet.getString("first_name"));
-                    persons.setLastName(resultSet.getString("last_name"));
-                    persons.setPassportNumber(resultSet.getInt("passport_number"));
-                    persons.setEmail(resultSet.getString("email"));
+                    employees.setId(resultSet.getLong("id"));
+                    employees.setBankId(BankDAO.getInstance()
+                            .getEntityById(resultSet.getLong("bank_id")));
+                    employees.setPersonId(PersonsDAO.getInstance()
+                            .getEntityById(resultSet.getLong("persons_id")));
+                    employees.setPosition(resultSet.getString("position"));
+                    employees.setDepartment(resultSet.getString("department"));
+                    employees.setJobExperience(resultSet.getString("job_experience"));
+                    employees.setEducation(resultSet.getString("education"));
+                    employees.setSalary(resultSet.getInt("salary"));
 
-                    persons.setAddress(AddressDAO.getInstance()
-                            .getEntityById(resultSet.getLong("address_id"),
-                                    resultSet.getStatement().getConnection()));
                 }
 
             }
@@ -77,12 +79,12 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
             }
         }
 
-        return persons;
+
+        return employees;
     }
 
     @Override
-    public void updateEntity(Persons person) {
-
+    public void updateEntity(Employees employees) {
         Connection conn = null;
 
         try {
@@ -90,12 +92,15 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_UPDATE)) {
 
-                ps.setString(1, person.getFirstName());
-                ps.setString(2, person.getLastName());
-                ps.setInt(3, person.getPassportNumber());
-                ps.setString(4, person.getEmail());
-                ps.setLong(5, person.getAddress().getId());
-                ps.setLong(6, person.getId());
+                ps.setLong(1, employees.getBankId().getId());
+                ps.setLong(2, employees.getPersonId().getId());
+                ps.setString(3, employees.getPosition());
+                ps.setString(4,employees.getDepartment());
+                ps.setString(5, employees.getJobExperience());
+                ps.setString(6, employees.getEducation());
+                ps.setInt(7, employees.getSalary());
+                ps.setLong(8, employees.getId());
+
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -112,7 +117,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     }
 
     @Override
-    public Persons createEntity(Persons person)     {
+    public Employees createEntity(Employees employees) {
         Connection conn = null;
 
         try {
@@ -120,17 +125,19 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
 
-                ps.setString(1, person.getFirstName());
-                ps.setString(2, person.getLastName());
-                ps.setInt(3, person.getPassportNumber());
-                ps.setString(4, person.getEmail());
-                ps.setLong(5, person.getAddress().getId());
+                ps.setLong(1, employees.getBankId().getId());
+                ps.setLong(2, employees.getPersonId().getId());
+                ps.setString(3, employees.getPosition());
+                ps.setString(4,employees.getDepartment());
+                ps.setString(5, employees.getJobExperience());
+                ps.setString(6, employees.getEducation());
+                ps.setInt(7, employees.getSalary());
 
                 ps.executeUpdate();
 
                 ResultSet key = ps.getGeneratedKeys();
-                if(key.next()){
-                    person.setId(key.getLong(1));
+                if (key.next()) {
+                    employees.setId(key.getLong(1));
                 }
             }
         } catch (SQLException e) {
@@ -144,8 +151,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
                 }
             }
         }
-
-        return person;
+        return employees;
     }
 
     @Override
@@ -172,8 +178,7 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
         }
     }
 
-
-    public static PersonsDAO getInstance() {
+    public static EmployeesDao getInstance(){
         return INSTANCE;
     }
 }

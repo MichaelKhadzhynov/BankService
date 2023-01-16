@@ -1,3 +1,5 @@
+import com.solvd.bankService.dao.mySQL.*;
+import com.solvd.bankService.models.*;
 import org.apache.log4j.Logger;
 
 public class Main {
@@ -6,6 +8,89 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+        /**
+         Clients
+         **/
+//        Clients entityById = ClientsDAO.getInstance().getEntityById(2);
+//        LOGGER.info(entityById);
+
+//        Clients clients = new Clients();
+//        clients.setPersonId(PersonsDAO.getInstance().getEntityById(1));
+//        clients.setClientType("Legal entity");
+//        ClientsDAO.getInstance().createEntity(clients);
+
+//        Clients clients = ClientsDAO.getInstance().getEntityById(12);
+//        clients.setClientType("Physical person");
+//        ClientsDAO.getInstance().updateEntity(clients);
+
+//        ClientsDAO.getInstance().removeEntity(11);
+
+
+        /**
+         Employees
+         **/
+
+//        Employees entityById = EmployeesDao.getInstance().getEntityById(1);
+//        LOGGER.info(entityById.getPersonId().getFirstName());
+
+//
+//        Employees employees = new Employees();
+//        employees.setBankId(BankDAO.getInstance().getEntityById(1));
+//        employees.setPersonId(PersonsDAO.getInstance().getEntityById(4));
+//        employees.setPosition("Admin");
+//        employees.setDepartment("Administration");
+//        employees.setJobExperience("Low");
+//        employees.setEducation("Bachelor");
+//        employees.setSalary(500);
+//        EmployeesDao.getInstance().createEntity(employees);
+
+//        Employees entityById = EmployeesDao.getInstance().getEntityById(6);
+//        entityById.setSalary(550);
+//        EmployeesDao.getInstance().updateEntity(entityById);
+
+//        EmployeesDao.getInstance().removeEntity(6);
+
+
+        /**
+         CashTransactionDepartment
+         **/
+//        CashTransactionDepartment cashTransactionDepartment = CashTransactionDepartmentDAO
+//                .getInstance().getEntityById(1);
+//        LOGGER.info(cashTransactionDepartment);
+
+//        CashTransactionDepartment cashTransactionDepartment = new CashTransactionDepartment();
+//        cashTransactionDepartment.setCashIn(3211);
+//        cashTransactionDepartment.setCashOut(3451);
+//        cashTransactionDepartment.setEmployeeId(EmployeesDao.getInstance().getEntityById(3));
+//        CashTransactionDepartmentDAO.getInstance().createEntity(cashTransactionDepartment);
+
+//        CashTransactionDepartment entityById = CashTransactionDepartmentDAO.getInstance().getEntityById(4);
+//        entityById.setCashOut(4000);
+//        CashTransactionDepartmentDAO.getInstance().updateEntity(entityById);
+
+//        CashTransactionDepartmentDAO.getInstance().removeEntity(5);
+
+
+        /**
+             Bank
+         **/
+
+//        Bank bank = BankDAO.getInstance().getEntityById(1);
+//        LOGGER.info(bank);
+
+//        Address address  = new Address();
+//        address.setId(1L);
+//        Bank bank = new Bank();
+//        bank.setBankNumber(4);
+//        bank.setAddressId(address);
+//        BankDAO.getInstance().createEntity(bank);
+
+//        Bank bank = BankDAO.getInstance().getEntityById(5);
+//        bank.setBankNumber(6);
+//        BankDAO.getInstance().updateEntity(bank);
+
+//        BankDAO.getInstance().removeEntity(5);
 
 
         /**
@@ -35,8 +120,8 @@ public class Main {
             AccountDetailsDAO
          **/
 
-//        AccountDetails entityById = AccountDetailsDAO.getInstance().getEntityById(11);
-//        LOGGER.info(entityById);
+//        AccountDetails accountDetails = AccountDetailsDAO.getInstance().getEntityById(4);
+//        LOGGER.info(accountDetails);
 
 //        AccountDetailsDAO accountDetailsDAO = AccountDetailsDAO.getInstance();
 //        AccountDetails accountDetails = new AccountDetails();

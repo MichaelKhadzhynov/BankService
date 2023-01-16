@@ -84,3 +84,10 @@
 2023-01-15 20:19:59 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
 2023-01-15 20:25:19 INFO  Main:16 - BankAccount{id=1, accountNumber=null, balance=null, accountType='null', accountDetailsId=null}
 2023-01-15 20:26:12 INFO  Main:16 - BankAccount{id=1, accountNumber=645325634754, balance=8020, accountType='personal', accountDetailsId=AccountDetails{id=1, iban=3632857917094142997, bankId=null}}
+2023-01-15 21:04:35 INFO  Main:15 - Bank{id=1, bankNumber=1, addressId=address{id=2, country='Ukraine', city='Lviv', homeAddress='street 2, ap 22', postalCode=79007, phoneNumber=380963356350}}
+2023-01-15 21:05:33 INFO  Main:51 - AccountDetails{id=4, iban=5585237472192624379, bankId=Bank{id=2, bankNumber=2, addressId=address{id=1, country='Ukraine', city='Kyiv', homeAddress='street 1, ap 23', postalCode=1033, phoneNumber=380963456782}}}
+2023-01-15 21:06:04 INFO  Main:51 - Kyiv
+2023-01-16 12:52:25 INFO  Main:21 - CashTransactionDepartment{id=1, cashIn=1000, cashOut=800, employeeId=null}
+2023-01-16 13:11:58 INFO  Main:19 - Employees{id=1, bankId=Bank{id=1, bankNumber=1, addressId=address{id=2, country='Ukraine', city='Lviv', homeAddress='street 2, ap 22', postalCode=79007, phoneNumber=380963356350}}, personId=Persons{id=2, firstName='Vickie', lastName='Champlin', passportNumber=565189, email='emailVickie@gmail.com', addressId=address{id=7, country='Poland', city='Warsaw', homeAddress='street 63, ap 85/12', postalCode=23565, phoneNumber=482245678234}}, position='Сashier', department='Cash transactions', jobExperience='Height', education='Bachelor', salary='500'}
+2023-01-16 13:13:09 INFO  Main:19 - Vickie
+2023-01-16 13:50:30 INFO  Main:14 - Clients{id=2, personId=Persons{id=3, firstName='Brannon', lastName='Wisozk', passportNumber=758424, email='emailBrannon@gmail.com', addressId=address{id=9, country='Ukraine', city='Kyiv', homeAddress='street 5, ap 15/64', postalCode=1043, phoneNumber=380963463456}}, clientType='Legal entity'}
