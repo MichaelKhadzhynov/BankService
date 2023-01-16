@@ -38,7 +38,7 @@ public class ConnectionPool {
         }
 
         conn = makeAvailable(conn);
-       // LOGGER.info("Connection number - " + connectionNumber + " | " + " Thread ID - " + " " + Thread.currentThread().getId());
+//        LOGGER.info("Connection number - " + connectionNumber + " | " + " Thread ID - " + " " + Thread.currentThread().getId());
 
         return conn;
     }

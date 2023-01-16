@@ -1,44 +1,47 @@
 package com.solvd.bankService.dao.mySQL;
 
-import com.solvd.bankService.dao.IBankAccountDAO;
-import com.solvd.bankService.models.BankAccount;
+import com.solvd.bankService.dao.IClientsDAO;
+import com.solvd.bankService.dao.ICreditCardDAO;
+import com.solvd.bankService.models.Clients;
+import com.solvd.bankService.models.CreditCard;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
 
-public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
+public class CreditCardDAO extends MySqlDAO implements ICreditCardDAO {
 
-    private static final BankAccountDAO INSTANCE = new BankAccountDAO();
+    private static final CreditCardDAO INSTANCE = new CreditCardDAO();
+
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
-            FROM bank_account 
+            FROM credit_card
             WHERE id =?
             """;
     //language=MYSQL-SQL
     private static final String SQL_UPDATE = """
-            UPDATE bank_accaunt
-            SET account_number = ?,
-                balance = ?,
-                account_type= ?,
-                account_details_id = ?
+            UPDATE credit_card
+            SET card_number = ?,
+                expired_date = ?,
+                cvv = ?,
+                clients_id = ?,
+                bank_account_id = ?                           
             WHERE id = ?      
             """;
     //language=MYSQL-SQL
     private static final String SQL_DELETE = """
-            DELETE FROM bank_account
+            DELETE FROM credit_card
             WHERE id =? 
             """;
     //language=MYSQL-SQL
     private static final String SQL_INSERT = """
-            INSERT INTO bank_account (account_number, balance, account_type, account_details_id)
-            VALUES ( ?, ?, ?, ?)
+            INSERT INTO credit_card (card_number, expired_date, cvv, clients_id, bank_account_id)
+            VALUES ( ?, ?, ?, ?, ?)
             """;
 
     @Override
-    public BankAccount getEntityById(long id) {
-        BankAccount bankAccount = new BankAccount();
-
+    public CreditCard getEntityById(long id) {
+        CreditCard creditCard = new CreditCard();
         Connection conn = null;
 
         try {
@@ -50,16 +53,15 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
                 ResultSet resultSet = ps.executeQuery();
                 while (resultSet.next()) {
-                    bankAccount.setId(resultSet.getLong("id"));
-                    bankAccount.setAccountNumber(resultSet.getLong("account_number"));
-                    bankAccount.setBalance(resultSet.getInt("balance"));
-                    bankAccount.setAccountType(resultSet.getString("account_type"));
-                    bankAccount.setAccountDetailsId(AccountDetailsDAO.getInstance()
-                            .getEntityById(resultSet.getLong("account_details_id")));
-
-
+                    creditCard.setId(resultSet.getLong("id"));
+                    creditCard.setCardNumber(resultSet.getLong("card_number"));
+                    creditCard.setExpiredDate(resultSet.getDate("expired_date"));
+                    creditCard.setCvv(resultSet.getInt("cvv"));
+                    creditCard.setClientsId(ClientsDAO.getInstance()
+                            .getEntityById(resultSet.getLong("clients_id")));
+                    creditCard.setBankAccountId(BankAccountDAO.getInstance()
+                            .getEntityById(resultSet.getLong("bank_account_id")));
                 }
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,12 +74,11 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
                 }
             }
         }
-
-        return bankAccount;
+        return creditCard;
     }
 
     @Override
-    public void updateEntity(BankAccount bankAccount) {
+    public void updateEntity(CreditCard creditCard) {
         Connection conn = null;
 
         try {
@@ -85,11 +86,13 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_UPDATE)) {
 
-                ps.setLong(1, bankAccount.getAccountNumber());
-                ps.setInt(2, bankAccount.getBalance());
-                ps.setString(3, bankAccount.getAccountType());
-                ps.setLong(4, bankAccount.getAccountDetailsId().getId());
-                ps.setLong(5, bankAccount.getId());
+                ps.setLong(1, creditCard.getCardNumber());
+                ps.setDate(2, creditCard.getExpiredDate());
+                ps.setInt(3, creditCard.getCvv());
+                ps.setLong(4,creditCard.getClientsId().getId());
+                ps.setLong(5, creditCard.getBankAccountId().getId());
+                ps.setLong(6, creditCard.getId());
+
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -106,7 +109,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
     }
 
     @Override
-    public BankAccount createEntity(BankAccount bankAccount) {
+    public CreditCard createEntity(CreditCard creditCard) {
         Connection conn = null;
 
         try {
@@ -114,15 +117,18 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
 
-                ps.setLong(1, bankAccount.getAccountNumber());
-                ps.setInt(2, bankAccount.getBalance());
-                ps.setString(3, bankAccount.getAccountType());
-                ps.setLong(4, bankAccount.getAccountDetailsId().getId());
+                ps.setLong(1, creditCard.getCardNumber());
+                ps.setDate(2, creditCard.getExpiredDate());
+                ps.setInt(3, creditCard.getCvv());
+                ps.setLong(4,creditCard.getClientsId().getId());
+                ps.setLong(5, creditCard.getBankAccountId().getId());
+
+
                 ps.executeUpdate();
 
                 ResultSet key = ps.getGeneratedKeys();
                 if (key.next()) {
-                    bankAccount.setId(key.getLong(1));
+                    creditCard.setId(key.getLong(1));
                 }
             }
         } catch (SQLException e) {
@@ -136,8 +142,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
                 }
             }
         }
-
-        return bankAccount;
+        return creditCard;
     }
 
     @Override
@@ -164,7 +169,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
         }
     }
 
-    public static BankAccountDAO getInstance() {
+    public static CreditCardDAO getInstance(){
         return INSTANCE;
     }
 }

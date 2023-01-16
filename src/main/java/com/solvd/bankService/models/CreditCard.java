@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class CreditCard {
     private Long id;
-    private Integer cardNumber;
+    private Long cardNumber;
     private Date expiredDate;
     private Integer cvv;
     private Clients clientsId;
@@ -19,11 +19,11 @@ public class CreditCard {
         this.id = id;
     }
 
-    public Integer getCardNumber() {
+    public Long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(Integer cardNumber) {
+    public void setCardNumber(Long cardNumber) {
         this.cardNumber = cardNumber;
     }
 

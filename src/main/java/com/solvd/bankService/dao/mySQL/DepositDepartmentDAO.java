@@ -1,44 +1,43 @@
 package com.solvd.bankService.dao.mySQL;
 
-import com.solvd.bankService.dao.IBankAccountDAO;
-import com.solvd.bankService.models.BankAccount;
+import com.solvd.bankService.dao.IDepositDepartmentDAO;
+import com.solvd.bankService.models.DepositDepartment;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
 
-public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
+public class DepositDepartmentDAO extends MySqlDAO implements IDepositDepartmentDAO {
 
-    private static final BankAccountDAO INSTANCE = new BankAccountDAO();
+    private static final DepositDepartmentDAO INSTANCE = new DepositDepartmentDAO();
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
-            FROM bank_account 
+            FROM deposit_dep
             WHERE id =?
             """;
     //language=MYSQL-SQL
     private static final String SQL_UPDATE = """
-            UPDATE bank_accaunt
-            SET account_number = ?,
-                balance = ?,
-                account_type= ?,
-                account_details_id = ?
+            UPDATE deposit_dep 
+            SET clients_id = ?,
+                cash = ?,
+                deposit_perсent = ?,
+                employee_id = ?            
             WHERE id = ?      
             """;
     //language=MYSQL-SQL
     private static final String SQL_DELETE = """
-            DELETE FROM bank_account
+            DELETE FROM deposit_dep
             WHERE id =? 
             """;
     //language=MYSQL-SQL
     private static final String SQL_INSERT = """
-            INSERT INTO bank_account (account_number, balance, account_type, account_details_id)
+            INSERT INTO deposit_dep (clients_id, cash, deposit_perсent, employee_id)
             VALUES ( ?, ?, ?, ?)
             """;
 
     @Override
-    public BankAccount getEntityById(long id) {
-        BankAccount bankAccount = new BankAccount();
-
+    public DepositDepartment getEntityById(long id) {
+        DepositDepartment depositDepartment = new DepositDepartment();
         Connection conn = null;
 
         try {
@@ -50,13 +49,13 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
                 ResultSet resultSet = ps.executeQuery();
                 while (resultSet.next()) {
-                    bankAccount.setId(resultSet.getLong("id"));
-                    bankAccount.setAccountNumber(resultSet.getLong("account_number"));
-                    bankAccount.setBalance(resultSet.getInt("balance"));
-                    bankAccount.setAccountType(resultSet.getString("account_type"));
-                    bankAccount.setAccountDetailsId(AccountDetailsDAO.getInstance()
-                            .getEntityById(resultSet.getLong("account_details_id")));
-
+                    depositDepartment.setId(resultSet.getLong("id"));
+                    depositDepartment.setClientId(ClientsDAO.getInstance()
+                            .getEntityById(resultSet.getLong("clients_id")));
+                    depositDepartment.setCash(resultSet.getInt("cash"));
+                    depositDepartment.setDepositPercent(resultSet.getInt("deposit_perсent"));
+                    depositDepartment.setEmployeeId(EmployeesDao.getInstance()
+                            .getEntityById(resultSet.getLong("employee_id")));
 
                 }
 
@@ -73,11 +72,11 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
             }
         }
 
-        return bankAccount;
+        return depositDepartment;
     }
 
     @Override
-    public void updateEntity(BankAccount bankAccount) {
+    public void updateEntity(DepositDepartment depositDepartment) {
         Connection conn = null;
 
         try {
@@ -85,11 +84,12 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_UPDATE)) {
 
-                ps.setLong(1, bankAccount.getAccountNumber());
-                ps.setInt(2, bankAccount.getBalance());
-                ps.setString(3, bankAccount.getAccountType());
-                ps.setLong(4, bankAccount.getAccountDetailsId().getId());
-                ps.setLong(5, bankAccount.getId());
+                ps.setLong(1, depositDepartment.getClientId().getId());
+                ps.setInt(2, depositDepartment.getCash());
+                ps.setInt(3, depositDepartment.getDepositPercent());
+                ps.setLong(4, depositDepartment.getEmployeeId().getId());
+                ps.setLong(5, depositDepartment.getId());
+
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -106,7 +106,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
     }
 
     @Override
-    public BankAccount createEntity(BankAccount bankAccount) {
+    public DepositDepartment createEntity(DepositDepartment depositDepartment) {
         Connection conn = null;
 
         try {
@@ -114,15 +114,17 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
 
             try (PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
 
-                ps.setLong(1, bankAccount.getAccountNumber());
-                ps.setInt(2, bankAccount.getBalance());
-                ps.setString(3, bankAccount.getAccountType());
-                ps.setLong(4, bankAccount.getAccountDetailsId().getId());
+                ps.setLong(1, depositDepartment.getClientId().getId());
+                ps.setInt(2, depositDepartment.getCash());
+                ps.setInt(3, depositDepartment.getDepositPercent());
+                ps.setLong(4, depositDepartment.getEmployeeId().getId());
+
+
                 ps.executeUpdate();
 
                 ResultSet key = ps.getGeneratedKeys();
                 if (key.next()) {
-                    bankAccount.setId(key.getLong(1));
+                    depositDepartment.setId(key.getLong(1));
                 }
             }
         } catch (SQLException e) {
@@ -137,7 +139,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
             }
         }
 
-        return bankAccount;
+        return depositDepartment;
     }
 
     @Override
@@ -164,7 +166,7 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
         }
     }
 
-    public static BankAccountDAO getInstance() {
+    public static DepositDepartmentDAO getInstance(){
         return INSTANCE;
     }
 }
