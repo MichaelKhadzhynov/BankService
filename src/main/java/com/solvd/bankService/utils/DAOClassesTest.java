@@ -1,8 +1,13 @@
 package com.solvd.bankService.utils;
 
 import com.solvd.bankService.dao.mySQL.DepositDepartmentDAO;
+import com.solvd.bankService.dao.mySQL.EmployeesDao;
 import com.solvd.bankService.models.DepositDepartment;
+import com.solvd.bankService.models.Employees;
 import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOClassesTest {
 
@@ -13,8 +18,8 @@ public class DAOClassesTest {
          DepositDepartment
          **/
 
-        DepositDepartment entityById = DepositDepartmentDAO.getInstance().getEntityById(2);
-        LOGGER.info(entityById);
+//        DepositDepartment entityById = DepositDepartmentDAO.getInstance().getEntityById(2);
+//        LOGGER.info(entityById);
 
 //        DepositDepartment depositDepartment = new DepositDepartment();
 //        depositDepartment.setClientId(ClientsDAO.getInstance().getEntityById(1));
@@ -71,10 +76,12 @@ public class DAOClassesTest {
         /**
          Employees
          **/
-
-//        Employees entityById = EmployeesDao.getInstance().getEntityById(1);
-//        LOGGER.info(entityById.getPersonId().getFirstName());
-
+//        List<Employees> employees = new ArrayList<>();
+//        for(long i=1; i<6; i++) {
+//            Employees entityById = EmployeesDao.getInstance().getEntityById(i);
+//            employees.add(entityById);
+//        }
+//        LOGGER.info(employees);
 //
 //        Employees employees = new Employees();
 //        employees.setBankId(BankDAO.getInstance().getEntityById(1));

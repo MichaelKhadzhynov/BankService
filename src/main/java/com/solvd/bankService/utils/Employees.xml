@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<employees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="Employees.xsd">
+
+
+    <employee id = "1" >
+        <bank id = "1">
+            <bank_number>1</bank_number>
+            <address id = "2" >
+                <country>Ukraine</country>
+                <city>Lviv</city>
+                <home_address>street 2, ap 22</home_address>
+                <postal_code>79007</postal_code>
+                <phone_number>380963356350</phone_number>
+            </address>
+        </bank>
+        <person id = "2">
+            <first_name>Vickie</first_name>
+            <last_name>Champlin</last_name>
+            <passport_number>565189</passport_number>
+            <email>emailVickie@gmail.com</email>
+            <address id="7">
+                <country>Poland</country>
+                <city>Warsaw</city>
+                <home_address>street 63, ap 85/12</home_address>
+                <postal_code>23565</postal_code>
+                <phone_number>482245678234</phone_number>
+            </address>
+        </person>
+        <position>Cashier</position>
+        <department>Cash transaction</department>
+        <job_experience>Height</job_experience>
+        <education>Bachelor</education>
+        <salary>500</salary>
+    </employee>
+    <employee id = "2" >
+        <bank id = "2">
+            <bank_number>2</bank_number>
+            <address id = "1" >
+                <country>Ukraine</country>
+                <city>Kyiv</city>
+                <home_address>street 1, ap 23</home_address>
+                <postal_code>1033</postal_code>
+                <phone_number>380963456782</phone_number>
+            </address>
+        </bank>
+        <person id = "5">
+            <first_name>Maritza</first_name>
+            <last_name>Schimmel</last_name>
+            <passport_number>489902</passport_number>
+            <email>emailMaritza@gmail.com</email>
+            <address id="11">
+                <country>Ukrain</country>
+                <city>Lviv</city>
+                <home_address>street 10, ap 86/85</home_address>
+                <postal_code>79007</postal_code>
+                <phone_number>380967886562</phone_number>
+            </address>
+        </person>
+        <position>Cashier</position>
+        <department>Cash transaction</department>
+        <job_experience>Low</job_experience>
+        <education>Bachelor</education>
+        <salary>450</salary>
+    </employee>
+    <employee id = "3" >
+        <bank id = "1">
+            <bank_number>1</bank_number>
+            <address id = "2" >
+                <country>Ukraine</country>
+                <city>Lviv</city>
+                <home_address>street 2, ap 22</home_address>
+                <postal_code>79007</postal_code>
+                <phone_number>380963356350</phone_number>
+            </address>
+        </bank>
+        <person id = "6">
+            <first_name>Junius</first_name>
+            <last_name>Bartoletti</last_name>
+            <passport_number>308254</passport_number>
+            <email>emailJunius@gmail.com</email>
+            <address id="6">
+                <country>Poland</country>
+                <city>Warsaw</city>
+                <home_address>street 12, ap 8/21</home_address>
+                <postal_code>23587</postal_code>
+                <phone_number>482245745784</phone_number>
+            </address>
+        </person>
+        <position>Manager</position>
+        <department>Deposits</department>
+        <job_experience>Low</job_experience>
+        <education>Bachelor</education>
+        <salary>400</salary>
+    </employee>
+    <employee id = "4" >
+        <bank id = "2">
+            <bank_number>1</bank_number>
+            <address id = "1" >
+                <country>Ukraine</country>
+                <city>Kyiv</city>
+                <home_address>street 1, ap 23</home_address>
+                <postal_code>1033</postal_code>
+                <phone_number>380963456782</phone_number>
+            </address>
+        </bank>
+        <person id = "8">
+            <first_name>Madelynn</first_name>
+            <last_name>Goldner</last_name>
+            <passport_number>934748</passport_number>
+            <email>emailMadelynn@gmail.com</email>
+            <address id="5">
+                <country>Poland</country>
+                <city>Warsaw</city>
+                <home_address>street 23, ap 2/3</home_address>
+                <postal_code>23593</postal_code>
+                <phone_number>482234675684</phone_number>
+            </address>
+        </person>
+        <position>Manager</position>
+        <department>Deposits</department>
+        <job_experience>Low</job_experience>
+        <education>Master</education>
+        <salary>500</salary>
+    </employee>
+    <employee id = "5" >
+        <bank id = "3">
+            <bank_number>3</bank_number>
+            <address id = "3" >
+                <country>Poland</country>
+                <city>Warsaw</city>
+                <home_address>street 3, ap 25</home_address>
+                <postal_code>23589</postal_code>
+                <phone_number>482296876545</phone_number>
+            </address>
+        </bank>
+        <person id = "10">
+            <first_name>Meredith</first_name>
+            <last_name>Greenholt</last_name>
+            <passport_number>984430</passport_number>
+            <email>emailMeredith @gmail.com</email>
+            <address id="3">
+                <country>Poland</country>
+                <city>Warsaw</city>
+                <home_address>street 3, ap 25</home_address>
+                <postal_code>23589</postal_code>
+                <phone_number>482296876545</phone_number>
+            </address>
+        </person>
+        <position>Admin</position>
+        <department>Administration</department>
+        <job_experience>Height</job_experience>
+        <education>Master</education>
+        <salary>600</salary>
+    </employee>
+</employees>
