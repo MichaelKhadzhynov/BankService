@@ -1,9 +1,6 @@
-import com.solvd.bankService.dao.mySQL.*;
-import com.solvd.bankService.models.*;
 import com.solvd.bankService.utils.DAOClassesTest;
+import com.solvd.bankService.utils.SaxParser;
 import org.apache.log4j.Logger;
-
-import java.sql.Date;
 
 public class Main {
 
@@ -11,8 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        DAOClassesTest.DAOTesting();
-
-
+//        DAOClassesTest.DAOTesting();
+        SaxParser.saxParser();
     }
 }

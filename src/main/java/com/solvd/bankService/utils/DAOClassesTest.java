@@ -1,9 +1,10 @@
 package com.solvd.bankService.utils;
 
-import com.solvd.bankService.dao.mySQL.DepositDepartmentDAO;
-import com.solvd.bankService.dao.mySQL.EmployeesDao;
+import com.solvd.bankService.dao.mySQL.*;
+import com.solvd.bankService.models.Address;
 import com.solvd.bankService.models.DepositDepartment;
 import com.solvd.bankService.models.Employees;
+import com.solvd.bankService.models.Persons;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -76,12 +77,12 @@ public class DAOClassesTest {
         /**
          Employees
          **/
-//        List<Employees> employees = new ArrayList<>();
-//        for(long i=1; i<6; i++) {
-//            Employees entityById = EmployeesDao.getInstance().getEntityById(i);
-//            employees.add(entityById);
-//        }
-//        LOGGER.info(employees);
+        List<Employees> employees = new ArrayList<>();
+        for(long i=1; i<6; i++) {
+            Employees entityById = EmployeesDao.getInstance().getEntityById(i);
+            employees.add(entityById);
+        }
+        LOGGER.info(employees);
 //
 //        Employees employees = new Employees();
 //        employees.setBankId(BankDAO.getInstance().getEntityById(1));
@@ -209,29 +210,25 @@ public class DAOClassesTest {
          PersonsDAO
          **/
 
-//        Persons persons = PersonsDAO.getInstance().getEntityById(1);
-//        PersonsDAO.getInstance().updateEntity(persons);
-//        PersonsDAO.getInstance();
 
-//        for (long i =15; i<30; i++){
-//            PersonsDAO.getInstance().removeEntity(i);
-//        }
-
-//        PersonsDAO personsDAO = PersonsDAO.getInstance();
-//        Address address = new Address();
-//        address.setId(4L);
 //        Persons persons = new Persons();
-//        persons.setFirstName("Larissa");
-//        persons.setLastName("Langosh");
+//        persons.setFirstName("Michael");
+//        persons.setLastName("Khadzhynov");
 //        persons.setPassportNumber(195969);
-//        persons.setEmail("email1@gmail.com");
-//        persons.setAddress(address);
-//        personsDAO.createEntity(persons);
+//        persons.setEmail("emailM@gmail.com");
+//        persons.setAddress(AddressDAO.getInstance().getEntityById(4));
+//        PersonsDAO.getInstance().createEntity(persons);
 
-//        Persons persons = PersonsDAO.getInstance().getEntityById(1);
-//        Address address = AddressDAO.getInstance().getEntityById(persons.getAddress().getId());
-//        address.setId(4L);
-//        persons.setAddress(address);
+
+//        Persons persons = PersonsDAO.getInstance().getEntityById(31);
+//        LOGGER.info(persons);
+
+//        Persons persons = PersonsDAO.getInstance().getEntityById(31);
+//        persons.setAddress(AddressDAO.getInstance().getEntityById(6));
 //        PersonsDAO.getInstance().updateEntity(persons);
+
+
+//        PersonsDAO.getInstance().removeEntity(31);
+
     }
 }

@@ -3,7 +3,6 @@ package com.solvd.bankService.dao.mySQL;
 import com.solvd.bankService.dao.IBaseDAO;
 import com.solvd.bankService.models.Address;
 import com.solvd.bankService.utils.ConnectionPool;
-import org.apache.log4j.Logger;
 
 import java.sql.*;
 
@@ -13,10 +12,10 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
 
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
-                    SELECT * 
-                    FROM address 
-                    WHERE id =?
-                    """;
+            SELECT * 
+            FROM address 
+            WHERE id =?
+            """;
     //language=MYSQL-SQL
     private static final String SQL_UPDATE = """
             UPDATE address 
@@ -40,7 +39,7 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
 
 
     // Overloaded method with connection parameter for excluding overfilling connection pool
-    public Address getEntityById(long id, Connection connection){
+    public Address getEntityById(long id, Connection connection) {
         Address address = new Address();
         Connection conn = connection;
 

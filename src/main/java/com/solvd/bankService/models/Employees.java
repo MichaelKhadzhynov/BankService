@@ -1,5 +1,7 @@
 package com.solvd.bankService.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Employees {
@@ -11,6 +13,7 @@ public class Employees {
     private String jobExperience;
     private String education;
     private Integer salary;
+
 
     public Long getId() {
         return id;
