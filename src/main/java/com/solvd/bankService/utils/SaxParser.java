@@ -16,16 +16,21 @@ public class SaxParser {
         final String file = "/Users/michael/div/IntelejIDEA Project/BankService/src/main/java/com/solvd/bankService/utils/Employees.xml";
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 
+        List<Employees> employeesList = null;
+
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
             MyHandler myHandler = new MyHandler();
             saxParser.parse(file, myHandler);
 
-            List<Employees> employeesList = myHandler.getEmployeesList();
-            employeesList.forEach(System.out::println);
+            employeesList = myHandler.getEmployeesList();
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (employeesList != null) {
+            employeesList.forEach(LOGGER::info);
         }
 
     }
