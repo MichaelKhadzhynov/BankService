@@ -2,16 +2,39 @@ package com.solvd.bankService.models;
 
 import com.solvd.bankService.dao.mySQL.AddressDAO;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
-
+@XmlRootElement(name = "person")
 public class Persons {
+
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
     private Integer passportNumber;
+
     private String email;
+
     private Address address;
 
+
+    public Persons() {
+    }
+    public Persons(String firstName, String lastName, Integer passportNumber, String email, Address address) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passportNumber = passportNumber;
+        this.email = email;
+        this.address = address;
+    }
+
+
+    @XmlAttribute(name = "id")
     public Long getId() {
         return id;
     }
@@ -19,7 +42,7 @@ public class Persons {
     public void setId(Long id) {
         this.id = id;
     }
-
+    @XmlElement(name = "first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -27,7 +50,7 @@ public class Persons {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+    @XmlElement(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -35,7 +58,7 @@ public class Persons {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
+    @XmlElement(name = "passport_number")
     public Integer getPassportNumber() {
         return passportNumber;
     }
@@ -43,7 +66,7 @@ public class Persons {
     public void setPassportNumber(Integer passportNumber) {
         this.passportNumber = passportNumber;
     }
-
+    @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
@@ -51,7 +74,7 @@ public class Persons {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    @XmlElement(name = "address")
     public Address getAddress() {
         return address;
     }

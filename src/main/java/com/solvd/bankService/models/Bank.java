@@ -1,12 +1,20 @@
 package com.solvd.bankService.models;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement(name = "bank")
 public class Bank {
+
     private Long id;
+
     private Integer bankNumber;
+
     private Address addressId;
 
+    @XmlAttribute(name = "id")
     public Long getId() {
         return id;
     }
@@ -14,7 +22,7 @@ public class Bank {
     public void setId(Long id) {
         this.id = id;
     }
-
+    @XmlElement(name = "bank_number")
     public Integer getBankNumber() {
         return bankNumber;
     }
@@ -22,7 +30,7 @@ public class Bank {
     public void setBankNumber(Integer bankNumber) {
         this.bankNumber = bankNumber;
     }
-
+    @XmlElement(name = "address")
     public Address getAddressId() {
         return addressId;
     }

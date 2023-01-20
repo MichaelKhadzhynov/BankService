@@ -1,20 +1,33 @@
 package com.solvd.bankService.models;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@XmlRootElement(name = "employee")
 public class Employees {
+
     private Long id;
+
     private Bank bankId;
+
     private Persons personId;
+
     private String position;
+
     private String department;
+
     private String jobExperience;
+
     private String education;
+
     private Integer salary;
 
 
+    @XmlAttribute(name = "id")
     public Long getId() {
         return id;
     }
@@ -23,6 +36,7 @@ public class Employees {
         this.id = id;
     }
 
+    @XmlElement(name = "bank")
     public Bank getBankId() {
         return bankId;
     }
@@ -31,6 +45,7 @@ public class Employees {
         this.bankId = bankId;
     }
 
+    @XmlElement(name = "person")
     public Persons getPersonId() {
         return personId;
     }
@@ -39,6 +54,7 @@ public class Employees {
         this.personId = personId;
     }
 
+    @XmlElement(name = "position")
     public String getPosition() {
         return position;
     }
@@ -47,6 +63,7 @@ public class Employees {
         this.position = position;
     }
 
+    @XmlElement(name = "department")
     public String getDepartment() {
         return department;
     }
@@ -55,6 +72,7 @@ public class Employees {
         this.department = department;
     }
 
+    @XmlElement(name = "jobExperience")
     public String getJobExperience() {
         return jobExperience;
     }
@@ -63,6 +81,7 @@ public class Employees {
         this.jobExperience = jobExperience;
     }
 
+    @XmlElement(name = "education")
     public String getEducation() {
         return education;
     }
@@ -71,6 +90,7 @@ public class Employees {
         this.education = education;
     }
 
+    @XmlElement(name = "salary")
     public Integer getSalary() {
         return salary;
     }

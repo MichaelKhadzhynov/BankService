@@ -5,6 +5,8 @@ import com.solvd.bankService.models.Persons;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
 
@@ -35,6 +37,10 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     private static final String SQL_INSERT = """
             INSERT INTO persons (first_name, last_name, passport_number, email, address_id)
             VALUES ( ?, ?, ?, ?, ?)
+            """;
+
+    private static final String SQL_SELECT_ALL = """
+            SELECT * FROM persons;
             """;
 
 
@@ -171,6 +177,52 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
             }
         }
     }
+
+    @Override
+    public List<Persons> getPersonsList() {
+        List<Persons> personsList = new ArrayList<>();
+        Connection conn = null;
+
+        try {
+            conn = ConnectionPool.getInstance().getConnection();
+            try (PreparedStatement ps = conn.prepareStatement(SQL_SELECT_ALL)) {
+
+                ResultSet resultSet = ps.executeQuery();
+                while (resultSet.next()) {
+
+                    personsList.add(personBuilder(resultSet));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return personsList;
+    }
+
+    public Persons personBuilder(ResultSet resultSet) throws SQLException {
+        Persons persons = new Persons();
+        persons.setId(resultSet.getLong("id"));
+        persons.setFirstName(resultSet.getString("first_name"));
+        persons.setLastName(resultSet.getString("last_name"));
+        persons.setPassportNumber(resultSet.getInt("passport_number"));
+        persons.setEmail(resultSet.getString("email"));
+
+        persons.setAddress(AddressDAO.getInstance()
+                .getEntityById(resultSet.getLong("address_id"),
+                        resultSet.getStatement().getConnection()));
+        return persons;
+    }
+
 
 
     public static PersonsDAO getInstance() {

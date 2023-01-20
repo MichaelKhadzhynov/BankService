@@ -7,6 +7,14 @@ public class Clients {
     private Persons personId;
     private String clientType;
 
+    public Clients() {
+    }
+
+    public Clients(Persons personId, String clientType) {
+        this.personId = personId;
+        this.clientType = clientType;
+    }
+
     public Long getId() {
         return id;
     }

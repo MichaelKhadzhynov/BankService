@@ -1,12 +1,15 @@
 package com.solvd.bankService.dao.mySQL;
 
+import com.solvd.bankService.dao.IAddressDAO;
 import com.solvd.bankService.dao.IBaseDAO;
 import com.solvd.bankService.models.Address;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
+public class AddressDAO extends MySqlDAO implements IAddressDAO {
 
     private static final AddressDAO INSTANCE = new AddressDAO();
 
@@ -37,6 +40,9 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
             VALUES ( ?, ?, ?, ?, ?)
             """;
 
+    private static final String SQL_SELECT_ALL = """
+            SELECT * FROM address;
+            """;
 
     // Overloaded method with connection parameter for excluding overfilling connection pool
     public Address getEntityById(long id, Connection connection) {
@@ -76,11 +82,8 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
         try {
             conn = ConnectionPool.getInstance().getConnection();
 
-            String sql = """
-                    SELECT * FROM address WHERE id =?
-                    """;
 
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            try (PreparedStatement ps = conn.prepareStatement(SQL_SELECT)) {
 
                 ps.setLong(1, id);
 
@@ -178,7 +181,6 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
         return address;
     }
 
-
     @Override
     public void removeEntity(long id) {
         Connection conn = null;
@@ -201,6 +203,50 @@ public class AddressDAO extends MySqlDAO implements IBaseDAO<Address> {
                 }
             }
         }
+    }
+
+    @Override
+    public List<Address> getAddressList() {
+        List<Address> addressList = new ArrayList<>();
+
+        Connection conn = null;
+        try {
+
+            conn = ConnectionPool.getInstance().getConnection();
+
+            try (PreparedStatement ps = conn.prepareStatement(SQL_SELECT_ALL)) {
+
+                ResultSet resultSet = ps.executeQuery();
+                while (resultSet.next()) {
+
+                    addressList.add(addressBuilder(resultSet));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return addressList;
+    }
+
+    private Address addressBuilder(ResultSet resultSet)throws SQLException{
+        Address address = new Address();
+        address.setId(resultSet.getLong("id"));
+        address.setCountry(resultSet.getString("country"));
+        address.setCity(resultSet.getString("city"));
+        address.setHomeAddress(resultSet.getString("home_address"));
+        address.setPostalCode(resultSet.getInt("postal_code"));
+        address.setPhoneNumber(resultSet.getLong("phone"));
+        return address;
     }
 
     public static AddressDAO getInstance() {

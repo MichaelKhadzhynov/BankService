@@ -1,17 +1,36 @@
 package com.solvd.bankService.models;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement(name = "address")
 public class Address {
+
     private Long id;
+
     private String country;
+
     private String city;
+
     private String homeAddress;
+
     private Integer postalCode;
+
     private Long phoneNumber;
 
+    public Address() {
+    }
 
-
+    public Address(String country, String city, String homeAddress, Integer postalCode, Long phoneNumber) {
+        this.country = country;
+        this.city = city;
+        this.homeAddress = homeAddress;
+        this.postalCode = postalCode;
+        this.phoneNumber = phoneNumber;
+    }
+    @XmlAttribute(name ="id")
     public Long getId() {
         return id;
     }
@@ -21,6 +40,7 @@ public class Address {
 
     }
 
+    @XmlElement(name = "country")
     public String getCountry() {
         return country;
     }
@@ -29,6 +49,7 @@ public class Address {
         this.country = country;
     }
 
+    @XmlElement(name = "city")
     public String getCity() {
         return city;
     }
@@ -37,6 +58,7 @@ public class Address {
         this.city = city;
     }
 
+    @XmlElement(name = "home_address")
     public String getHomeAddress() {
         return homeAddress;
     }
@@ -45,6 +67,7 @@ public class Address {
         this.homeAddress = homeAddress;
     }
 
+    @XmlElement(name = "postal_code")
     public Integer getPostalCode() {
         return postalCode;
     }
@@ -53,6 +76,7 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+    @XmlElement(name = "phone_Number")
     public Long getPhoneNumber() {
         return phoneNumber;
     }

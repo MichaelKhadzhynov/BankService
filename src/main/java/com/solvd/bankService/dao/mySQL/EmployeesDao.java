@@ -5,11 +5,16 @@ import com.solvd.bankService.models.Employees;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
 
     private static final EmployeesDao INSTANCE = new EmployeesDao();
 
+    private static final String SQL_SELECT_ALL="""
+                    SELECT * FROM employees;
+            """;
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
@@ -95,7 +100,7 @@ public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
                 ps.setLong(1, employees.getBankId().getId());
                 ps.setLong(2, employees.getPersonId().getId());
                 ps.setString(3, employees.getPosition());
-                ps.setString(4,employees.getDepartment());
+                ps.setString(4, employees.getDepartment());
                 ps.setString(5, employees.getJobExperience());
                 ps.setString(6, employees.getEducation());
                 ps.setInt(7, employees.getSalary());
@@ -128,7 +133,7 @@ public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
                 ps.setLong(1, employees.getBankId().getId());
                 ps.setLong(2, employees.getPersonId().getId());
                 ps.setString(3, employees.getPosition());
-                ps.setString(4,employees.getDepartment());
+                ps.setString(4, employees.getDepartment());
                 ps.setString(5, employees.getJobExperience());
                 ps.setString(6, employees.getEducation());
                 ps.setInt(7, employees.getSalary());
@@ -178,7 +183,57 @@ public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
         }
     }
 
-    public static EmployeesDao getInstance(){
+    @Override
+    public List<Employees> getEmployeesList() {
+
+
+        List<Employees> employeesList = new ArrayList<>();
+
+        Connection conn = null;
+
+        try {
+
+            conn = ConnectionPool.getInstance().getConnection();
+
+            try (PreparedStatement ps = conn.prepareStatement(SQL_SELECT_ALL)) {
+
+                ResultSet resultSet = ps.executeQuery();
+                while (resultSet.next()) {
+
+                    employeesList.add(employeeBuilder(resultSet));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return employeesList;
+    }
+
+    private Employees employeeBuilder(ResultSet resultSet)throws SQLException{
+        Employees employees = new Employees();
+        employees.setId(resultSet.getLong("id"));
+        employees.setBankId(BankDAO.getInstance()
+                .getEntityById(resultSet.getLong("bank_id")));
+        employees.setPersonId(PersonsDAO.getInstance()
+                .getEntityById(resultSet.getLong("persons_id")));
+        employees.setPosition(resultSet.getString("position"));
+        employees.setDepartment(resultSet.getString("department"));
+        employees.setJobExperience(resultSet.getString("job_experience"));
+        employees.setEducation(resultSet.getString("education"));
+        employees.setSalary(resultSet.getInt("salary"));
+        return employees;
+    }
+
+    public static EmployeesDao getInstance() {
         return INSTANCE;
     }
 }

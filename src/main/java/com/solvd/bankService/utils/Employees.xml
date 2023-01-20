@@ -29,7 +29,7 @@
             </address>
         </person>
         <position>Cashier</position>
-        <department>Cash transaction</department>
+        <department>Cash transactions</department>
         <job_experience>Height</job_experience>
         <education>Bachelor</education>
         <salary>500</salary>
@@ -59,7 +59,7 @@
             </address>
         </person>
         <position>Cashier</position>
-        <department>Cash transaction</department>
+        <department>Cash transactions</department>
         <job_experience>Low</job_experience>
         <education>Bachelor</education>
         <salary>450</salary>
