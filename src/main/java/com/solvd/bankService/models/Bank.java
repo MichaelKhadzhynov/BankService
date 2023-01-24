@@ -1,5 +1,7 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -7,11 +9,11 @@ import java.util.Objects;
 
 @XmlRootElement(name = "bank")
 public class Bank {
-
+    @JsonProperty("id")
     private Long id;
-
+    @JsonProperty("bank_number")
     private Integer bankNumber;
-
+    @JsonProperty("address_id")
     private Address addressId;
 
     @XmlAttribute(name = "id")

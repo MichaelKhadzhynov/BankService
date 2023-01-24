@@ -1,14 +1,24 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Date;
 import java.util.Objects;
 
 public class CreditCard {
+
+    @JsonProperty(value = "id", index = 1)
     private Long id;
+    @JsonProperty("card_number")
     private Long cardNumber;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date expiredDate;
+    @JsonProperty("cvv")
     private Integer cvv;
+    @JsonProperty("clients_id")
     private Clients clientsId;
+    @JsonProperty("bank_account_id")
     private BankAccount bankAccountId;
 
     public Long getId() {

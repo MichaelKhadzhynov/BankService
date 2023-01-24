@@ -1,23 +1,28 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
 @XmlRootElement(name = "address")
+@JsonRootName(value = "address")
 public class Address {
 
+    @JsonProperty("id")
     private Long id;
-
+    @JsonProperty("country")
     private String country;
-
+    @JsonProperty("city")
     private String city;
-
+    @JsonProperty("home_address")
     private String homeAddress;
-
+    @JsonProperty("postal_code")
     private Integer postalCode;
-
+    @JsonProperty("phone")
     private Long phoneNumber;
 
     public Address() {

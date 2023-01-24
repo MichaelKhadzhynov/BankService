@@ -4,14 +4,20 @@ import com.solvd.bankService.dao.IClientsDAO;
 import com.solvd.bankService.dao.ICreditCardDAO;
 import com.solvd.bankService.models.Clients;
 import com.solvd.bankService.models.CreditCard;
+import com.solvd.bankService.models.Employees;
 import com.solvd.bankService.utils.ConnectionPool;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreditCardDAO extends MySqlDAO implements ICreditCardDAO {
 
     private static final CreditCardDAO INSTANCE = new CreditCardDAO();
 
+    private static final String SQL_SELECT_ALL="""
+                    SELECT * FROM credit_card;
+            """;
     //language=MYSQL-SQL
     private static final String SQL_SELECT = """
             SELECT * 
@@ -167,6 +173,53 @@ public class CreditCardDAO extends MySqlDAO implements ICreditCardDAO {
                 }
             }
         }
+    }
+
+    @Override
+    public List<CreditCard> getCreditCardList() {
+        List<CreditCard> creditCardList = new ArrayList<>();
+
+        Connection conn = null;
+
+        try {
+
+            conn = ConnectionPool.getInstance().getConnection();
+
+            try (PreparedStatement ps = conn.prepareStatement(SQL_SELECT_ALL)) {
+
+                ResultSet resultSet = ps.executeQuery();
+                while (resultSet.next()) {
+
+                    creditCardList.add(creditCardBuilder(resultSet));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return creditCardList;
+    }
+
+    public CreditCard creditCardBuilder(ResultSet resultSet) throws SQLException{
+
+        CreditCard creditCard = new CreditCard();
+        creditCard.setId(resultSet.getLong("id"));
+        creditCard.setCardNumber(resultSet.getLong("card_number"));
+        creditCard.setExpiredDate(resultSet.getDate("expired_date"));
+        creditCard.setCvv(resultSet.getInt("cvv"));
+        creditCard.setClientsId(ClientsDAO.getInstance()
+                .getEntityById(resultSet.getLong("clients_id")));
+        creditCard.setBankAccountId(BankAccountDAO.getInstance()
+                .getEntityById(resultSet.getLong("bank_account_id")));
+        return creditCard;
     }
 
     public static CreditCardDAO getInstance(){

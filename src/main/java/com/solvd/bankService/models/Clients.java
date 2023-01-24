@@ -1,19 +1,27 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.util.Objects;
 
+@JsonRootName(value = "clients")
 public class Clients {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("person")
     private Persons personId;
+    @JsonProperty("client_type")
     private String clientType;
+
 
     public Clients() {
     }
-
     public Clients(Persons personId, String clientType) {
         this.personId = personId;
         this.clientType = clientType;
     }
+
+
 
     public Long getId() {
         return id;

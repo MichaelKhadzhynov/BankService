@@ -4,6 +4,9 @@ import com.solvd.bankService.dao.IBankDAO;
 import com.solvd.bankService.models.Bank;
 import com.solvd.bankService.utils.ConnectionPool;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.*;
 
 public class BankDAO extends MySqlDAO implements IBankDAO {
@@ -33,6 +36,11 @@ public class BankDAO extends MySqlDAO implements IBankDAO {
             INSERT INTO bank (bank_number, address_id)
             VALUES ( ?, ?)
             """;
+
+    private static final String SQL_ADD_BLOB = """
+                UPDATE bank
+                SET bank_logo = ?
+                WHERE id = ?""";
 
     public static BankDAO getInstance() {
         return INSTANCE;
@@ -149,6 +157,36 @@ public class BankDAO extends MySqlDAO implements IBankDAO {
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    ConnectionPool.getInstance().releaseConnection(conn);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void addBankLogo(long id, String fileName) {
+
+        Connection conn = null;
+        try {
+            conn = ConnectionPool.getInstance().getConnection();
+            try (PreparedStatement ps = conn.prepareStatement(SQL_ADD_BLOB)) {
+
+                Blob blob = conn.createBlob();
+                blob.setBytes(1, Files.readAllBytes(Path.of(fileName)));
+
+                ps.setBlob(1, blob);
+                ps.setLong(2, id);
+
+                ps.executeUpdate();
+
+            }
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         } finally {
             if (conn != null) {

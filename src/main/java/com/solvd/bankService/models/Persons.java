@@ -1,24 +1,29 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.solvd.bankService.dao.mySQL.AddressDAO;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
+
 @XmlRootElement(name = "person")
+@JsonRootName(value = "person")
 public class Persons {
 
+    @JsonProperty("id")
     private Long id;
-
+    @JsonProperty("first_name")
     private String firstName;
-
+    @JsonProperty("last_name")
     private String lastName;
-
+    @JsonProperty("passport_number")
     private Integer passportNumber;
-
+    @JsonProperty("email")
     private String email;
-
+    @JsonProperty("address")
     private Address address;
 
 

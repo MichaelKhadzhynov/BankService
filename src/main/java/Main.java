@@ -1,9 +1,4 @@
-import com.solvd.bankService.dao.mySQL.AddressDAO;
-import com.solvd.bankService.dao.mySQL.EmployeesDao;
-import com.solvd.bankService.dao.mySQL.PersonsDAO;
-import com.solvd.bankService.models.Employees;
-import com.solvd.bankService.services.ClientCreation;
-import com.solvd.bankService.utils.*;
+import com.solvd.bankService.dao.mySQL.AlterTableDAO;
 import org.apache.log4j.Logger;
 
 public class Main {
@@ -29,11 +24,18 @@ public class Main {
 //        }
 
 //        JaxbEx.jaxbStartRead();
-
 //        JaxbEx.jaxbStartWrite();
+//        EmployeesDao.getInstance().getEmployeesList().forEach(System.out::println);
 
 
-//            EmployeesDao.getInstance().getEmployeesList().forEach(System.out::println);
+//        AlterTableDAO.getInstance().addColumn("bank", "bank_logo", "BLOB");
+        AlterTableDAO.getInstance().dropColumn("bank","bank_logo");
+
+//        BankDAO.getInstance().addBankLogo(2,"/Users/michael/div/IntelejIDEA Project/BankService/src/main/resources/bankLogo.png");
+
+//        Jackson.jacksonRead();
+//        Jackson.jacksonWrite();
+//        Jackson.jacksonWriteCreditCards();
 
 
 

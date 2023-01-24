@@ -1,10 +1,15 @@
 package com.solvd.bankService.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class AccountDetails {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("iban_number")
     private Long iban;
+    @JsonProperty("bank_id")
     private Bank bankId;
 
     public Long getId() {
