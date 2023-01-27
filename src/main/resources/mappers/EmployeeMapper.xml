@@ -1,0 +1,58 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IEmployeesDAO">
+
+    <resultMap id="employee" type="com.solvd.bankService.models.Employees">
+        <id property="id" column="id"/>
+        <result property="position" column="position"/>
+        <result property="department" column="department"/>
+        <result property="jobExperience" column="job_experience"/>
+        <result property="education" column="education"/>
+        <result property="salary" column="salary"/>
+
+        <association property="bankId" column="bank_id"
+                     javaType="com.solvd.bankService.models.Bank"
+                     select="com.solvd.bankService.dao.IBankDAO.getEntityById"/>
+        <association property="personId" column="persons_id"
+                     javaType="com.solvd.bankService.models.Persons"
+                     select="com.solvd.bankService.dao.IPersonsDAO.getEntityById"/>
+
+
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="employee">
+        select *
+        from  employees
+        where id = #{id}
+    </select>
+
+    <select id="getEmployeesList" resultMap="employee">
+        select *
+        from employees
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.Employees" >
+        insert into employees (bank_id, persons_id, position, department, job_experience, education, salary)
+        values (#{bankId.id}, #{personId.id}, #{position}, #{department}, #{jobExperience}, #{education}, #{salary})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.Employees">
+        update employees
+        set bank_id        = #{bankId.id},
+            persons_id     = #{personId.id},
+            position       = #{position},
+            department     = #{department},
+            job_experience = #{jobExperience},
+            education      = #{education},
+            salary         = #{salary}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from employees
+        where id = #{id}
+    </delete>
+
+</mapper>

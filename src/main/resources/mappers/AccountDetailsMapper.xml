@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IAccountDetailsDAO">
+
+    <resultMap id="accountDetails" type="com.solvd.bankService.models.AccountDetails">
+        <id property="id" column="id"/>
+        <result property="iban" column="iban_number"/>
+        <association property="bankId" column="bank_id"
+                     javaType="com.solvd.bankService.models.Bank"
+                     select="com.solvd.bankService.dao.IBankDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="accountDetails">
+        select *
+        from  account_details
+        where id = #{id}
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.AccountDetails" >
+        insert into account_details (iban_number, bank_id)
+        values (#{iban}, #{bankId.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.AccountDetails">
+        update account_details
+        set iban_number = #{iban},
+            bank_id = #{bankID.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from account_details
+        where id = #{id}
+    </delete>
+
+</mapper>

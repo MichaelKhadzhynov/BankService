@@ -1,0 +1,48 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IPersonsDAO">
+
+    <resultMap id="person" type="com.solvd.bankService.models.Persons">
+        <id property="id" column="id"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="passportNumber" column="passport_number"/>
+        <result property="email" column="email"/>
+        <association property="address" column="address_id"
+                     javaType="com.solvd.bankService.models.Address"
+                     select="com.solvd.bankService.dao.IAddressDAO.getEntityById"/>
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="person">
+        select *
+        from persons
+        where id = #{id}
+    </select>
+
+    <select id="getPersonsList" resultMap="person">
+        select *
+        from persons;
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.Persons">
+        insert into persons (first_name, last_name, passport_number, email, address_id)
+        values (#{firstName}, #{lastName}, #{passportNumber}, #{email}, #{address.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.Persons">
+        update persons
+        set first_name      = #{firstName},
+            last_name       = #{lastName},
+            passport_number = #{passportNumber},
+            email           = #{email},
+            address_id      = #{address.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from persons
+        where id = #{id}
+    </delete>
+
+</mapper>

@@ -157,6 +157,11 @@ public class AccountDetailsDAO extends MySqlDAO implements IAccountDetailsDAO {
         }
     }
 
+    @Override
+    public void createEntityMyBatis(AccountDetails entity) {
+
+    }
+
     public static AccountDetailsDAO getInstance(){
         return INSTANCE;
     }

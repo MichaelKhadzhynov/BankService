@@ -160,6 +160,11 @@ public class CashTransactionDepartmentDAO extends MySqlDAO implements ICashTrans
         }
     }
 
+    @Override
+    public void createEntityMyBatis(CashTransactionDepartment entity) {
+
+    }
+
     public static CashTransactionDepartmentDAO getInstance(){
         return INSTANCE;
     }

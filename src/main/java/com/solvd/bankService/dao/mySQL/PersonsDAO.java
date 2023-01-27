@@ -179,6 +179,11 @@ public class PersonsDAO extends MySqlDAO implements IPersonsDAO {
     }
 
     @Override
+    public void createEntityMyBatis(Persons entity) {
+
+    }
+
+    @Override
     public List<Persons> getPersonsList() {
         List<Persons> personsList = new ArrayList<>();
         Connection conn = null;

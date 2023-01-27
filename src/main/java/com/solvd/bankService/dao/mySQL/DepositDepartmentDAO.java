@@ -166,6 +166,11 @@ public class DepositDepartmentDAO extends MySqlDAO implements IDepositDepartment
         }
     }
 
+    @Override
+    public void createEntityMyBatis(DepositDepartment entity) {
+
+    }
+
     public static DepositDepartmentDAO getInstance(){
         return INSTANCE;
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IDepositDepartmentDAO">
+
+    <resultMap id="depositDepartment" type="com.solvd.bankService.models.DepositDepartment">
+        <id property="id" column="id"/>
+        <result property="cash" column="cash"/>
+        <result property="depositPercent" column="deposit_perсent"/>
+
+        <association property="clientId" column="clients_id"
+                     javaType="com.solvd.bankService.models.Clients"
+                     select="com.solvd.bankService.dao.IClientsDAO.getEntityById"/>
+        <association property="employeeId" column="employee_id"
+                     javaType="com.solvd.bankService.models.Employees"
+                     select="com.solvd.bankService.dao.IEmployeesDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="depositDepartment">
+        select *
+        from  deposit_dep
+        where id = #{id}
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.DepositDepartment" >
+        insert into deposit_dep (clients_id, cash, deposit_perсent, employee_id)
+        values (#{clientsId}, #{cash}, #{depositPercent}, #{employeeId.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.DepositDepartment">
+        update deposit_dep
+        set clients_id     = #{clientsId},
+            cash         = #{cash},
+            deposit_perсent = #{depositPercent},
+            employee_id  = #{employeeId.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from deposit_dep
+        where id = #{id}
+    </delete>
+
+</mapper>

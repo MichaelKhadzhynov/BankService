@@ -1,5 +1,9 @@
 import com.solvd.bankService.dao.mySQL.AlterTableDAO;
+import com.solvd.bankService.utils.MyBatisTest;
+import org.apache.ibatis.javassist.Loader;
 import org.apache.log4j.Logger;
+
+
 
 public class Main {
 
@@ -29,7 +33,7 @@ public class Main {
 
 
 //        AlterTableDAO.getInstance().addColumn("bank", "bank_logo", "BLOB");
-        AlterTableDAO.getInstance().dropColumn("bank","bank_logo");
+//        AlterTableDAO.getInstance().dropColumn("bank","bank_logo");
 
 //        BankDAO.getInstance().addBankLogo(2,"/Users/michael/div/IntelejIDEA Project/BankService/src/main/resources/bankLogo.png");
 
@@ -37,6 +41,8 @@ public class Main {
 //        Jackson.jacksonWrite();
 //        Jackson.jacksonWriteCreditCards();
 
+        MyBatisTest.myBatisTest();
+        
 
 
     }

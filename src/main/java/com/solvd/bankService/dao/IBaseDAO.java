@@ -10,4 +10,6 @@ public interface IBaseDAO<T> {
 
     void removeEntity(long id);
 
+    void createEntityMyBatis(T entity);
+
 }

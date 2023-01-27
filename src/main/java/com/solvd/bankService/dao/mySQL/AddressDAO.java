@@ -238,6 +238,11 @@ public class AddressDAO extends MySqlDAO implements IAddressDAO {
         return addressList;
     }
 
+    @Override
+    public void createEntityMyBatis(Address entity) {
+
+    }
+
     private Address addressBuilder(ResultSet resultSet)throws SQLException{
         Address address = new Address();
         address.setId(resultSet.getLong("id"));

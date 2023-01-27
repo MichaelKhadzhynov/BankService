@@ -161,6 +161,11 @@ public class ClientsDAO extends MySqlDAO implements IClientsDAO {
     }
 
     @Override
+    public void createEntityMyBatis(Clients entity) {
+
+    }
+
+    @Override
     public List<Clients> getClientsList(){
         List<Clients> clientList = new ArrayList<>();
 

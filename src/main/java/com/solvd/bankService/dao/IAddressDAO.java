@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IAddressDAO extends IBaseDAO<Address>{
     public List<Address> getAddressList();
+
+
 }

@@ -164,6 +164,11 @@ public class BankAccountDAO extends MySqlDAO implements IBankAccountDAO {
         }
     }
 
+    @Override
+    public void createEntityMyBatis(BankAccount entity) {
+
+    }
+
     public static BankAccountDAO getInstance() {
         return INSTANCE;
     }

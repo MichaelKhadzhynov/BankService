@@ -1,0 +1,42 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IBankAccountDAO">
+
+    <resultMap id="bankAccount" type="com.solvd.bankService.models.BankAccount">
+        <id property="id" column="id"/>
+        <result property="accountNumber" column="account_number"/>
+        <result property="balance" column="balance"/>
+        <result property="accountType" column="account_type"/>
+        <association property="accountDetailsId" column="account_details_id"
+                     javaType="com.solvd.bankService.models.AccountDetails"
+                     select="com.solvd.bankService.dao.IAccountDetailsDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="bankAccount">
+        select *
+        from  bank_account
+        where id = #{id}
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.BankAccount" >
+        insert into bank_account (account_number, balance, account_type, account_details_id)
+        values (#{accountNumber}, #{balance}, #{accountType}, #{accountDetailsId.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.BankAccount">
+        update bank_account
+        set account_number     = #{accountNumber},
+            balance            = #{balance},
+            account_type       = #{accountType},
+            account_details_id = #{accountDetailsId.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from bank_account
+        where id = #{id}
+    </delete>
+
+</mapper>

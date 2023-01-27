@@ -176,6 +176,11 @@ public class CreditCardDAO extends MySqlDAO implements ICreditCardDAO {
     }
 
     @Override
+    public void createEntityMyBatis(CreditCard entity) {
+
+    }
+
+    @Override
     public List<CreditCard> getCreditCardList() {
         List<CreditCard> creditCardList = new ArrayList<>();
 

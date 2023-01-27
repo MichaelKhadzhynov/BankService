@@ -1,0 +1,39 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.ICashTransactionDepartmentDAO">
+
+    <resultMap id="cashTransactionDep" type="com.solvd.bankService.models.CashTransactionDepartment">
+        <id property="id" column="id"/>
+        <result property="cashIn" column="cash_in"/>
+        <result property="cashOut" column="cash_out"/>
+        <association property="employeeId" column="employee_id"
+                     javaType="com.solvd.bankService.models.Employees"
+                     select="com.solvd.bankService.dao.IEmployeesDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="cashTransactionDep">
+        select *
+        from  cash_transactions_dep
+        where id = #{id}
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.CashTransactionDepartment" >
+        insert into cash_transactions_dep (cash_in, cash_out, employee_id)
+        values (#{cashIn}, #{cashOut}, #{employeeId.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.CashTransactionDepartment">
+        update cash_transactions_dep
+        set cash_in     = #{cashIn},
+            cash_out    = #{cashOut},
+            employee_id = #{employeeId.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from cash_transactions_dep
+        where id = #{id}
+    </delete>
+</mapper>

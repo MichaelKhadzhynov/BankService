@@ -1,0 +1,52 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.ICreditCardDAO">
+
+    <resultMap id="creditCard" type="com.solvd.bankService.models.CreditCard">
+        <id property="id" column="id"/>
+        <result property="cardNumber" column="card_number"/>
+        <result property="expiredDate" column="expired_date"/>
+        <result property="cvv" column="cvv"/>
+
+        <association property="clientId" column="client_id"
+                     javaType="com.solvd.bankService.models.Clients"
+                     select="com.solvd.bankService.dao.IClientsDAO.getEntityById"/>
+        <association property="bankAccountId" column="bank_account_id"
+                     javaType="com.solvd.bankService.models.BankAccount"
+                     select="com.solvd.bankService.dao.IBankAccountDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="creditCard">
+        select *
+        from  credit_card
+        where id = #{id}
+    </select>
+
+    <select id="getCreditCardList" resultMap="creditCard">
+        select *
+        from credit_card
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.CreditCard" >
+        insert into credit_card (card_number, expired_date, cvv, clients_id, bank_account_id)
+        values (#{cardNumber}, #{expiredDate}, #{cvv}, #{clientsId.id}, #{bankAccountId.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.CreditCard">
+        update credit_card
+        set card_number     = #{cardNumber},
+            expired_date    = #{expiredDate},
+            cvv             = #{cvv},
+            clients_id      = #{clientsId.id},
+            bank_account_id = #{bankAccountId.id}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from credit_card
+        where id = #{id}
+    </delete>
+
+</mapper>

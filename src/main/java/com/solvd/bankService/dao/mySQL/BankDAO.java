@@ -170,6 +170,11 @@ public class BankDAO extends MySqlDAO implements IBankDAO {
     }
 
     @Override
+    public void createEntityMyBatis(Bank entity) {
+
+    }
+
+    @Override
     public void addBankLogo(long id, String fileName) {
 
         Connection conn = null;

@@ -184,6 +184,11 @@ public class EmployeesDao extends MySqlDAO implements IEmployeesDAO {
     }
 
     @Override
+    public void createEntityMyBatis(Employees entity) {
+
+    }
+
+    @Override
     public List<Employees> getEmployeesList() {
 
 

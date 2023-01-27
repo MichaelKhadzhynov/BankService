@@ -1,0 +1,43 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.bankService.dao.IClientsDAO">
+
+    <resultMap id="clients" type="com.solvd.bankService.models.Clients">
+        <id property="id" column="id"/>
+        <result property="clientType" column="client_type"/>
+        <association property="personId" column="persons_id"
+                     javaType="com.solvd.bankService.models.Persons"
+                     select="com.solvd.bankService.dao.IPersonsDAO.getEntityById"/>
+
+    </resultMap>
+
+    <select id="getEntityById" parameterType="java.lang.Long" resultMap="clients">
+        select *
+        from  clients
+        where id = #{id}
+    </select>
+
+    <select id="getClientsList" resultMap="clients">
+        select *
+        from clients
+    </select>
+
+    <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.Clients" >
+        insert into clients (persons_id, client_type)
+        values (#{personId.id}, #{clientType})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.bankService.models.Clients">
+        update clients
+        set persons_id      = #{personId.id},
+            client_type       = #{clientType}
+        where id = #{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="java.lang.Long">
+        delete
+        from clients
+        where id = #{id}
+    </delete>
+
+</mapper>
