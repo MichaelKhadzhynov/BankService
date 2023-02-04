@@ -2,98 +2,98 @@
   "clients": [
     {
       "id": 1,
-      "person": {
+      "personId": {
         "id": 1,
-        "first_name": "Larissa",
-        "last_name": "Langosh",
-        "passport_number": 195969,
+        "firstName": "Larissa",
+        "lastName": "Langosh",
+        "passportNumber": 195969,
         "email": "email1@gmail.com",
-        "address": {
+        "addressId": {
           "id": 4,
           "country": "Poland",
           "city": "Warsaw",
-          "home_address": "street 78, ap 4/21",
-          "postal_code": 23597,
+          "homeAddress": "street 78, ap 4/21",
+          "postalCode": 23597,
           "phone": 482293252323
         }
       },
-      "client_type": "Physical person"
+      "clientType": "Physical person"
     },
     {
       "id": 2,
-      "person": {
+      "personId": {
         "id": 9,
-        "first_name": "Brannon",
-        "last_name": "Wisozk",
-        "passport_number": 758424,
+        "firstName": "Brannon",
+        "lastName": "Wisozk",
+        "passportNumber": 758424,
         "email": "emailBrannon@gmail.com",
-        "address": {
+        "addressId": {
           "id": 9,
           "country": "Ukraine",
           "city": "Kyiv",
-          "home_address": "street 5, ap 15/64",
-          "postal_code": 1043,
+          "homeAddress": "street 5, ap 15/64",
+          "postalCode": 1043,
           "phone": 380963463456
         }
       },
-      "client_type": "Legal entity"
+      "clientType": "Legal entity"
     },
     {
       "id": 3,
-      "person": {
+      "personId": {
         "id": 4,
-        "first_name": "Hassie",
-        "last_name": "Heidenreich",
-        "passport_number": 540338,
+        "firstName": "Hassie",
+        "lastName": "Heidenreich",
+        "passportNumber": 540338,
         "email": "emailHassie@gmail.com",
-        "address": {
+        "addressId": {
           "id": 10,
           "country": "Ukraine",
           "city": "Kyiv",
-          "home_address": "street 12, ap 44/7",
-          "postal_code": 1023,
+          "homeAddress": "street 12, ap 44/7",
+          "postalCode": 1023,
           "phone": 380967423462
         }
       },
-      "client_type": "Physical person"
+      "clientType": "Physical person"
     },
     {
       "id": 4,
-      "person": {
+      "personId": {
         "id": 7,
-        "first_name": "Lessie",
-        "last_name": "Hartmann",
-        "passport_number": 758476,
+        "firstName": "Lessie",
+        "lastName": "Hartmann",
+        "passportNumber": 758476,
         "email": "emailLessie@gmail.com",
-        "address": {
+        "addressId": {
           "id": 13,
           "country": "Ukraine",
           "city": "Lviv",
-          "home_address": "street 29, ap 85/4",
-          "postal_code": 79002,
+          "homeAddress": "street 29, ap 85/4",
+          "postalCode": 79002,
           "phone": 380967568534
         }
       },
-      "client_type": "Physical person"
+      "clientType": "Physical person"
     },
     {
       "id": 5,
-      "person": {
+      "personId": {
         "id": 9,
-        "first_name": "Alexandra ",
-        "last_name": "Auer",
-        "passport_number": 922629,
+        "firstName": "Alexandra ",
+        "lastName": "Auer",
+        "passportNumber": 922629,
         "email": "emailAlexandra @gmail.com",
-        "address": {
+        "addressId": {
           "id": 12,
           "country": "Ukraine",
           "city": "Lviv",
-          "home_address": "street 45, ap 97/4",
-          "postal_code": 79004,
+          "homeAddress": "street 45, ap 97/4",
+          "postalCode": 79004,
           "phone": 380969677653
         }
       },
-      "client_type": "Legal entity"
+      "clientType": "Legal entity"
     }
   ]
 }

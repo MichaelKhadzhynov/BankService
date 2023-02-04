@@ -3,10 +3,15 @@ package com.solvd.bankService.utils.JacksonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import com.solvd.bankService.dao.mySQL.*;
+import com.solvd.bankService.models.*;
+import com.solvd.bankService.utils.XMLParsers.EmployeesList;
 import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Jackson {
@@ -32,15 +37,21 @@ public class Jackson {
     }
 
     public static void jacksonWrite() {
-        String filePath = "/Users/michael/div/IntelejIDEA Project/BankService/src/main/java/com/solvd/bankService/utils/JacksonParser/ClientListWrite.json";
+        String filePath = "/Users/michael/div/IntelejIDEA Project/BankService/src/main/java/com/solvd/bankService/utils/JacksonParser/DepositDepartment.json";
 
-        ClientList clientList = new ClientList();
+//        ClientList clientList = new ClientList();
+
+
+        List<DepositDepartment> list = new ArrayList<>();
+        for(int i =1; i<6; i++) {
+        list.add(DepositDepartmentDAO.getInstance().getEntityById(i));
+        }
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-            objectMapper.writeValue(new File(filePath), clientList);
+            objectMapper.writeValue(new File(filePath), list);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

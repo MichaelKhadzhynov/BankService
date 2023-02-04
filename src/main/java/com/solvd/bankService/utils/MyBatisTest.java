@@ -24,10 +24,10 @@ public class MyBatisTest {
             Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             SqlSession session = sqlSessionFactory.openSession();
-//            IPersonsDAO personMyBatis = session.getMapper(IPersonsDAO.class);
-////            Persons persons = personMyBatis.getEntityById(1L);
-//            List<Persons> personsList = personMyBatis.getPersonsList();
-//            personsList.forEach(LOGGER::info);
+            IPersonsDAO personMyBatis = session.getMapper(IPersonsDAO.class);
+//            Persons persons = personMyBatis.getEntityById(1L);
+            List<Persons> personsList = personMyBatis.getPersonsList();
+            personsList.forEach(LOGGER::info);
 //
 //            IAddressDAO addressDAO = session.getMapper(IAddressDAO.class);
 //            List<Address> addressList = addressDAO.getAddressList();

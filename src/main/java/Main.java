@@ -1,8 +1,11 @@
 import com.solvd.bankService.dao.mySQL.AlterTableDAO;
+import com.solvd.bankService.services.OpenNewDepositAccountOperation;
+import com.solvd.bankService.utils.JacksonParser.Jackson;
 import com.solvd.bankService.utils.MyBatisTest;
 import org.apache.ibatis.javassist.Loader;
 import org.apache.log4j.Logger;
 
+import java.util.Iterator;
 
 
 public class Main {
@@ -41,9 +44,28 @@ public class Main {
 //        Jackson.jacksonWrite();
 //        Jackson.jacksonWriteCreditCards();
 
-        MyBatisTest.myBatisTest();
-        
+//        MyBatisTest.myBatisTest();
+
+//        OpenNewDepositAccountOperation.openDepositOperation();
 
 
+
+
+
+//        for(int i: range(0, 100)){
+//            System.out.println(i);
+//        }
+//
+//
+//
     }
+//
+//    public static Iterable<Integer> range(int fromInclusive,
+//                                          int toExclusive) {
+//        return () -> new Iterator<Integer>() {
+//            int cursor = fromInclusive;
+//            public boolean hasNext() { return cursor < toExclusive; }
+//            public Integer next() { return cursor++; }
+//        };
+//    }
 }

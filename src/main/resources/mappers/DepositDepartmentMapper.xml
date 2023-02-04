@@ -24,12 +24,12 @@
 
     <insert id="createEntityMyBatis" useGeneratedKeys="true" parameterType="com.solvd.bankService.models.DepositDepartment" >
         insert into deposit_dep (clients_id, cash, deposit_perсent, employee_id)
-        values (#{clientsId}, #{cash}, #{depositPercent}, #{employeeId.id})
+        values (#{clientId.id}, #{cash}, #{depositPercent}, #{employeeId.id})
     </insert>
 
     <update id="updateEntity" parameterType="com.solvd.bankService.models.DepositDepartment">
         update deposit_dep
-        set clients_id     = #{clientsId},
+        set clients_id     = #{clientId.id},
             cash         = #{cash},
             deposit_perсent = #{depositPercent},
             employee_id  = #{employeeId.id}
