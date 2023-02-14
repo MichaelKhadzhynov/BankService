@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="employees">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="employee" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="employee">
+        <xs:sequence>
+            <xs:element name="bank" type="bank" maxOccurs="unbounded"/>
+            <xs:element name="person" type="person" maxOccurs="unbounded"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="department" type="xs:string"/>
+            <xs:element name="job_experience" type="xs:string"/>
+            <xs:element name="education" type="xs:string"/>
+            <xs:element name="salary" type="xs:int"/>
+
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="bank">
+        <xs:sequence>
+            <xs:element name="bank_number" type="xs:int"/>
+            <xs:element name="address" type="address" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="address">
+        <xs:sequence>
+            <xs:element name="country" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="home_address" type="xs:string"/>
+            <xs:element name="postal_code" type="xs:long"/>
+            <xs:element name="phone_number" type="xs:long"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="person">
+        <xs:sequence>
+            <xs:element name="first_name" type="xs:string"/>
+            <xs:element name="last_name" type="xs:string"/>
+            <xs:element name="passport_number" type="xs:long"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="address" type="address" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+</xs:schema>

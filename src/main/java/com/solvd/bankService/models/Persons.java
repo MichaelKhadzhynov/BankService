@@ -23,7 +23,7 @@ public class Persons {
     private Integer passportNumber;
     @JsonProperty("email")
     private String email;
-    @JsonProperty("address")
+    @JsonProperty("address_id")
     private Address address;
 
 

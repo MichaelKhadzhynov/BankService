@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Clients {
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("person")
+    @JsonProperty("person_id")
     private Persons personId;
     @JsonProperty("client_type")
     private String clientType;

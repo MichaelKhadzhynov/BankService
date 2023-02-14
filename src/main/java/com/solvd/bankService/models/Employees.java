@@ -26,6 +26,19 @@ public class Employees {
 
     private Integer salary;
 
+    public Employees(Long id, Bank bankId, Persons personId, String position, String department, String jobExperience, String education, Integer salary) {
+        this.id = id;
+        this.bankId = bankId;
+        this.personId = personId;
+        this.position = position;
+        this.department = department;
+        this.jobExperience = jobExperience;
+        this.education = education;
+        this.salary = salary;
+    }
+
+    public Employees() {
+    }
 
     @XmlAttribute(name = "id")
     public Long getId() {

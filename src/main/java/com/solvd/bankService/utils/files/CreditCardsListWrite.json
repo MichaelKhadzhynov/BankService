@@ -1,0 +1,233 @@
+{
+  "credit_cards_list" : [ {
+    "id" : 1,
+    "expiredDate" : "21-08-2025",
+    "card_number" : 4639563956385638,
+    "cvv" : 123,
+    "clients_id" : {
+      "id" : 2,
+      "person_id" : {
+        "id" : 3,
+        "first_name" : "Brannon",
+        "last_name" : "Wisozk",
+        "passport_number" : 758424,
+        "email" : "emailBrannon@gmail.com",
+        "address_id" : {
+          "id" : 9,
+          "country" : "Ukraine",
+          "city" : "Kyiv",
+          "home_address" : "street 5, ap 15/64",
+          "postal_code" : 1043,
+          "phone" : 380963463456
+        }
+      },
+      "client_type" : "Legal entity"
+    },
+    "bank_account_id" : {
+      "id" : 1,
+      "account_number" : 645325634754,
+      "balance" : 8020,
+      "account_type" : "personal",
+      "account_details_id" : {
+        "id" : 1,
+        "iban_number" : 3632857917094142997,
+        "bank_id" : {
+          "id" : 1,
+          "bank_number" : 1,
+          "address_id" : {
+            "id" : 2,
+            "country" : "Ukraine",
+            "city" : "Lviv",
+            "home_address" : "street 2, ap 22",
+            "postal_code" : 79007,
+            "phone" : 380963356350
+          }
+        }
+      }
+    }
+  }, {
+    "id" : 2,
+    "expiredDate" : "20-05-2023",
+    "card_number" : 4639563930242548,
+    "cvv" : 543,
+    "clients_id" : {
+      "id" : 5,
+      "person_id" : {
+        "id" : 9,
+        "first_name" : "Alexandra ",
+        "last_name" : "Auer",
+        "passport_number" : 922629,
+        "email" : "emailAlexandra @gmail.com",
+        "address_id" : {
+          "id" : 12,
+          "country" : "Ukraine",
+          "city" : "Lviv",
+          "home_address" : "street 45, ap 97/4",
+          "postal_code" : 79004,
+          "phone" : 380969677653
+        }
+      },
+      "client_type" : "Legal entity"
+    },
+    "bank_account_id" : {
+      "id" : 3,
+      "account_number" : 876456875679,
+      "balance" : 6432,
+      "account_type" : "personal",
+      "account_details_id" : {
+        "id" : 2,
+        "iban_number" : 6238757078026116075,
+        "bank_id" : {
+          "id" : 1,
+          "bank_number" : 1,
+          "address_id" : {
+            "id" : 2,
+            "country" : "Ukraine",
+            "city" : "Lviv",
+            "home_address" : "street 2, ap 22",
+            "postal_code" : 79007,
+            "phone" : 380963356350
+          }
+        }
+      }
+    }
+  }, {
+    "id" : 4,
+    "expiredDate" : "18-06-2025",
+    "card_number" : 4639444295373721,
+    "cvv" : 234,
+    "clients_id" : {
+      "id" : 3,
+      "person_id" : {
+        "id" : 4,
+        "first_name" : "Hassie",
+        "last_name" : "Heidenreich",
+        "passport_number" : 540338,
+        "email" : "emailHassie@gmail.com",
+        "address_id" : {
+          "id" : 10,
+          "country" : "Ukraine",
+          "city" : "Kyiv",
+          "home_address" : "street 12, ap 44/7",
+          "postal_code" : 1023,
+          "phone" : 380967423462
+        }
+      },
+      "client_type" : "Physical person"
+    },
+    "bank_account_id" : {
+      "id" : 5,
+      "account_number" : 656758767657,
+      "balance" : 3335,
+      "account_type" : "personal",
+      "account_details_id" : {
+        "id" : 4,
+        "iban_number" : 5585237472192624379,
+        "bank_id" : {
+          "id" : 2,
+          "bank_number" : 2,
+          "address_id" : {
+            "id" : 1,
+            "country" : "Ukraine",
+            "city" : "Kyiv",
+            "home_address" : "street 1, ap 23",
+            "postal_code" : 1033,
+            "phone" : 380963456782
+          }
+        }
+      }
+    }
+  }, {
+    "id" : 5,
+    "expiredDate" : "06-11-2026",
+    "card_number" : 4639234995632123,
+    "cvv" : 745,
+    "clients_id" : {
+      "id" : 4,
+      "person_id" : {
+        "id" : 7,
+        "first_name" : "Lessie",
+        "last_name" : "Hartmann",
+        "passport_number" : 758476,
+        "email" : "emailLessie@gmail.com",
+        "address_id" : {
+          "id" : 13,
+          "country" : "Ukraine",
+          "city" : "Lviv",
+          "home_address" : "street 29, ap 85/4",
+          "postal_code" : 79002,
+          "phone" : 380967568534
+        }
+      },
+      "client_type" : "Physical person"
+    },
+    "bank_account_id" : {
+      "id" : 4,
+      "account_number" : 890860600865,
+      "balance" : 7543,
+      "account_type" : "personal",
+      "account_details_id" : {
+        "id" : 5,
+        "iban_number" : 1110030802046348748,
+        "bank_id" : {
+          "id" : 3,
+          "bank_number" : 3,
+          "address_id" : {
+            "id" : 3,
+            "country" : "Poland",
+            "city" : "Warsaw",
+            "home_address" : "street 3, ap 25",
+            "postal_code" : 23589,
+            "phone" : 482296876545
+          }
+        }
+      }
+    }
+  }, {
+    "id" : 13,
+    "expiredDate" : "11-08-2026",
+    "card_number" : 1234567890123456,
+    "cvv" : 321,
+    "clients_id" : {
+      "id" : 1,
+      "person_id" : {
+        "id" : 1,
+        "first_name" : "Larissa",
+        "last_name" : "Langosh",
+        "passport_number" : 195969,
+        "email" : "email1@gmail.com",
+        "address_id" : {
+          "id" : 4,
+          "country" : "Poland",
+          "city" : "Warsaw",
+          "home_address" : "street 78, ap 4/21",
+          "postal_code" : 23597,
+          "phone" : 482293252323
+        }
+      },
+      "client_type" : "Physical person"
+    },
+    "bank_account_id" : {
+      "id" : 2,
+      "account_number" : 642546723472,
+      "balance" : 1245,
+      "account_type" : "personal",
+      "account_details_id" : {
+        "id" : 3,
+        "iban_number" : 2231466757283154637,
+        "bank_id" : {
+          "id" : 2,
+          "bank_number" : 2,
+          "address_id" : {
+            "id" : 1,
+            "country" : "Ukraine",
+            "city" : "Kyiv",
+            "home_address" : "street 1, ap 23",
+            "postal_code" : 1033,
+            "phone" : 380963456782
+          }
+        }
+      }
+    }
+  } ]
+}

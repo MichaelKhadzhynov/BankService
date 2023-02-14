@@ -1,0 +1,1205 @@
+{
+  "addresses": [
+    {
+      "id": 1,
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "home_address": "street 1, ap 23",
+      "postal_code": 1033,
+      "phone": 380963456782
+    },
+    {
+      "id": 2,
+      "country": "Ukraine",
+      "city": "Lviv",
+      "home_address": "street 2, ap 22",
+      "postal_code": 79007,
+      "phone": 380963356350
+    },
+    {
+      "id": 3,
+      "country": "Poland",
+      "city": "Warsaw",
+      "home_address": "street 3, ap 25",
+      "postal_code": 23589,
+      "phone": 482296876545
+    },
+    {
+      "id": 4,
+      "country": "Poland",
+      "city": "Warsaw",
+      "home_address": "street 78, ap 4/21",
+      "postal_code": 23597,
+      "phone": 482293252323
+    },
+    {
+      "id": 5,
+      "country": "Poland",
+      "city": "Warsaw",
+      "home_address": "street 23, ap 2/3",
+      "postal_code": 23593,
+      "phone": 482234675684
+    },
+    {
+      "id": 6,
+      "country": "Poland",
+      "city": "Warsaw",
+      "home_address": "street 12, ap 8/21",
+      "postal_code": 23587,
+      "phone": 482245745784
+    },
+    {
+      "id": 7,
+      "country": "Poland",
+      "city": "Warsaw",
+      "home_address": "street 63, ap 85/12",
+      "postal_code": 23565,
+      "phone": 482245678234
+    },
+    {
+      "id": 8,
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "home_address": "street 34, ap 9/3",
+      "postal_code": 1055,
+      "phone": 380963473452
+    },
+    {
+      "id": 9,
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "home_address": "street 5, ap 15/64",
+      "postal_code": 1043,
+      "phone": 380963463456
+    },
+    {
+      "id": 10,
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "home_address": "street 12, ap 44/7",
+      "postal_code": 1023,
+      "phone": 380967423462
+    },
+    {
+      "id": 11,
+      "country": "Ukraine",
+      "city": "Lviv",
+      "home_address": "street 10, ap 86/85",
+      "postal_code": 79007,
+      "phone": 380967886562
+    },
+    {
+      "id": 12,
+      "country": "Ukraine",
+      "city": "Lviv",
+      "home_address": "street 45, ap 97/4",
+      "postal_code": 79004,
+      "phone": 380969677653
+    },
+    {
+      "id": 13,
+      "country": "Ukraine",
+      "city": "Lviv",
+      "home_address": "street 29, ap 85/4",
+      "postal_code": 79002,
+      "phone": 380967568534
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "first_name": "Larissa",
+      "last_name": "Langosh",
+      "passport_number": 195969,
+      "email": "email1@gmail.com",
+      "address_id": {
+        "id": 4,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 78, ap 4/21",
+        "postal_code": 23597,
+        "phone": 482293252323
+      }
+    },
+    {
+      "id": 2,
+      "first_name": "Vickie",
+      "last_name": "Champlin",
+      "passport_number": 565189,
+      "email": "emailVickie@gmail.com",
+      "address_id": {
+        "id": 7,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 63, ap 85/12",
+        "postal_code": 23565,
+        "phone": 482245678234
+      }
+    },
+    {
+      "id": 3,
+      "first_name": "Brannon",
+      "last_name": "Wisozk",
+      "passport_number": 758424,
+      "email": "emailBrannon@gmail.com",
+      "address_id": {
+        "id": 9,
+        "country": "Ukraine",
+        "city": "Kyiv",
+        "home_address": "street 5, ap 15/64",
+        "postal_code": 1043,
+        "phone": 380963463456
+      }
+    },
+    {
+      "id": 4,
+      "first_name": "Hassie",
+      "last_name": "Heidenreich",
+      "passport_number": 540338,
+      "email": "emailHassie@gmail.com",
+      "address_id": {
+        "id": 10,
+        "country": "Ukraine",
+        "city": "Kyiv",
+        "home_address": "street 12, ap 44/7",
+        "postal_code": 1023,
+        "phone": 380967423462
+      }
+    },
+    {
+      "id": 5,
+      "first_name": "Maritza",
+      "last_name": "Schimmel",
+      "passport_number": 489902,
+      "email": "emailMaritza@gmail.com",
+      "address_id": {
+        "id": 11,
+        "country": "Ukraine",
+        "city": "Lviv",
+        "home_address": "street 10, ap 86/85",
+        "postal_code": 79007,
+        "phone": 380967886562
+      }
+    },
+    {
+      "id": 6,
+      "first_name": "Junius",
+      "last_name": "Bartoletti",
+      "passport_number": 308254,
+      "email": "emailJunius@gmail.com",
+      "address_id": {
+        "id": 6,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 12, ap 8/21",
+        "postal_code": 23587,
+        "phone": 482245745784
+      }
+    },
+    {
+      "id": 7,
+      "first_name": "Lessie",
+      "last_name": "Hartmann",
+      "passport_number": 758476,
+      "email": "emailLessie@gmail.com",
+      "address_id": {
+        "id": 13,
+        "country": "Ukraine",
+        "city": "Lviv",
+        "home_address": "street 29, ap 85/4",
+        "postal_code": 79002,
+        "phone": 380967568534
+      }
+    },
+    {
+      "id": 8,
+      "first_name": "Madelynn",
+      "last_name": "Goldner",
+      "passport_number": 934748,
+      "email": "emailMadelynn@gmail.com",
+      "address_id": {
+        "id": 5,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 23, ap 2/3",
+        "postal_code": 23593,
+        "phone": 482234675684
+      }
+    },
+    {
+      "id": 9,
+      "first_name": "Alexandra ",
+      "last_name": "Auer",
+      "passport_number": 922629,
+      "email": "emailAlexandra @gmail.com",
+      "address_id": {
+        "id": 12,
+        "country": "Ukraine",
+        "city": "Lviv",
+        "home_address": "street 45, ap 97/4",
+        "postal_code": 79004,
+        "phone": 380969677653
+      }
+    },
+    {
+      "id": 10,
+      "first_name": "Meredith ",
+      "last_name": "Greenholt",
+      "passport_number": 984430,
+      "email": "emailMeredith @gmail.com",
+      "address_id": {
+        "id": 3,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 3, ap 25",
+        "postal_code": 23589,
+        "phone": 482296876545
+      }
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "bankId": {
+        "id": 1,
+        "bankNumber": 1,
+        "address_id": {
+          "id": 2,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 2, ap 22",
+          "postal_code": 79007,
+          "phone": 380963356350
+        }
+      },
+      "person_id": {
+        "id": 2,
+        "first_name": "Vickie",
+        "last_name": "Champlin",
+        "passport_number": 565189,
+        "email": "emailVickie@gmail.com",
+        "address_id": {
+          "id": 7,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 63, ap 85/12",
+          "postal_code": 23565,
+          "phone": 482245678234
+        }
+      },
+      "position": "Сashier",
+      "department": "Cash transactions",
+      "jobExperience": "Height",
+      "education": "Bachelor",
+      "salary": 500
+    },
+    {
+      "id": 2,
+      "bankId": {
+        "id": 2,
+        "bankNumber": 2,
+        "address_id": {
+          "id": 1,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 1, ap 23",
+          "postal_code": 1033,
+          "phone": 380963456782
+        }
+      },
+      "person_id": {
+        "id": 5,
+        "first_name": "Maritza",
+        "last_name": "Schimmel",
+        "passport_number": 489902,
+        "email": "emailMaritza@gmail.com",
+        "address_id": {
+          "id": 11,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 10, ap 86/85",
+          "postal_code": 79007,
+          "phone": 380967886562
+        }
+      },
+      "position": "Сashier",
+      "department": "Cash transactions",
+      "jobExperience": "Low",
+      "education": "Bachelor",
+      "salary": 450
+    },
+    {
+      "id": 3,
+      "bankId": {
+        "id": 1,
+        "bankNumber": 1,
+        "address_id": {
+          "id": 2,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 2, ap 22",
+          "postal_code": 79007,
+          "phone": 380963356350
+        }
+      },
+      "person_id": {
+        "id": 6,
+        "first_name": "Junius",
+        "last_name": "Bartoletti",
+        "passport_number": 308254,
+        "email": "emailJunius@gmail.com",
+        "address_id": {
+          "id": 6,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 12, ap 8/21",
+          "postal_code": 23587,
+          "phone": 482245745784
+        }
+      },
+      "position": "Manager",
+      "department": "Deposits",
+      "jobExperience": "Low",
+      "education": "Bachelor",
+      "salary": 400
+    },
+    {
+      "id": 4,
+      "bankId": {
+        "id": 2,
+        "bankNumber": 2,
+        "address_id": {
+          "id": 1,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 1, ap 23",
+          "postal_code": 1033,
+          "phone": 380963456782
+        }
+      },
+      "person_id": {
+        "id": 8,
+        "first_name": "Madelynn",
+        "last_name": "Goldner",
+        "passport_number": 934748,
+        "email": "emailMadelynn@gmail.com",
+        "address_id": {
+          "id": 5,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 23, ap 2/3",
+          "postal_code": 23593,
+          "phone": 482234675684
+        }
+      },
+      "position": "Manager",
+      "department": "Deposits",
+      "jobExperience": "Medium",
+      "education": "Master",
+      "salary": 500
+    },
+    {
+      "id": 5,
+      "bankId": {
+        "id": 3,
+        "bankNumber": 3,
+        "address_id": {
+          "id": 3,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 3, ap 25",
+          "postal_code": 23589,
+          "phone": 482296876545
+        }
+      },
+      "person_id": {
+        "id": 10,
+        "first_name": "Meredith ",
+        "last_name": "Greenholt",
+        "passport_number": 984430,
+        "email": "emailMeredith @gmail.com",
+        "address_id": {
+          "id": 3,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 3, ap 25",
+          "postal_code": 23589,
+          "phone": 482296876545
+        }
+      },
+      "position": "Admin",
+      "department": "Administration",
+      "jobExperience": "Height",
+      "education": "Master",
+      "salary": 600
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "person_id": {
+        "id": 1,
+        "first_name": "Larissa",
+        "last_name": "Langosh",
+        "passport_number": 195969,
+        "email": "email1@gmail.com",
+        "address_id": {
+          "id": 4,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 78, ap 4/21",
+          "postal_code": 23597,
+          "phone": 482293252323
+        }
+      },
+      "client_type": "Physical person"
+    },
+    {
+      "id": 2,
+      "person_id": {
+        "id": 3,
+        "first_name": "Brannon",
+        "last_name": "Wisozk",
+        "passport_number": 758424,
+        "email": "emailBrannon@gmail.com",
+        "address_id": {
+          "id": 9,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 5, ap 15/64",
+          "postal_code": 1043,
+          "phone": 380963463456
+        }
+      },
+      "client_type": "Legal entity"
+    },
+    {
+      "id": 3,
+      "person_id": {
+        "id": 4,
+        "first_name": "Hassie",
+        "last_name": "Heidenreich",
+        "passport_number": 540338,
+        "email": "emailHassie@gmail.com",
+        "address_id": {
+          "id": 10,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 12, ap 44/7",
+          "postal_code": 1023,
+          "phone": 380967423462
+        }
+      },
+      "client_type": "Physical person"
+    },
+    {
+      "id": 4,
+      "person_id": {
+        "id": 7,
+        "first_name": "Lessie",
+        "last_name": "Hartmann",
+        "passport_number": 758476,
+        "email": "emailLessie@gmail.com",
+        "address_id": {
+          "id": 13,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 29, ap 85/4",
+          "postal_code": 79002,
+          "phone": 380967568534
+        }
+      },
+      "client_type": "Physical person"
+    },
+    {
+      "id": 5,
+      "person_id": {
+        "id": 9,
+        "first_name": "Alexandra ",
+        "last_name": "Auer",
+        "passport_number": 922629,
+        "email": "emailAlexandra @gmail.com",
+        "address_id": {
+          "id": 12,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 45, ap 97/4",
+          "postal_code": 79004,
+          "phone": 380969677653
+        }
+      },
+      "client_type": "Legal entity"
+    }
+  ],
+  "creditCards": [
+    {
+      "id": 1,
+      "expiredDate": "21-08-2025",
+      "cardNumber": 4639563956385638,
+      "cvv": 123,
+      "clients": {
+        "id": 2,
+        "person_id": {
+          "id": 3,
+          "first_name": "Brannon",
+          "last_name": "Wisozk",
+          "passport_number": 758424,
+          "email": "emailBrannon@gmail.com",
+          "address_id": {
+            "id": 9,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 5, ap 15/64",
+            "postal_code": 1043,
+            "phone": 380963463456
+          }
+        },
+        "client_type": "Legal entity"
+      },
+      "bankAccountId": {
+        "id": 1,
+        "accountNumber": 645325634754,
+        "balance": 8020,
+        "accountType": "personal",
+        "accountDetailsId": {
+          "id": 1,
+          "ibanNumber": 3632857917094142997,
+          "bankId": {
+            "id": 1,
+            "bankNumber": 1,
+            "address_id": {
+              "id": 2,
+              "country": "Ukraine",
+              "city": "Lviv",
+              "home_address": "street 2, ap 22",
+              "postal_code": 79007,
+              "phone": 380963356350
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "expiredDate": "20-05-2023",
+      "cardNumber": 4639563930242548,
+      "cvv": 543,
+      "clients": {
+        "id": 5,
+        "person_id": {
+          "id": 9,
+          "first_name": "Alexandra ",
+          "last_name": "Auer",
+          "passport_number": 922629,
+          "email": "emailAlexandra @gmail.com",
+          "address_id": {
+            "id": 12,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 45, ap 97/4",
+            "postal_code": 79004,
+            "phone": 380969677653
+          }
+        },
+        "client_type": "Legal entity"
+      },
+      "bankAccountId": {
+        "id": 3,
+        "accountNumber": 876456875679,
+        "balance": 6432,
+        "accountType": "personal",
+        "accountDetailsId": {
+          "id": 2,
+          "ibanNumber": 6238757078026116075,
+          "bankId": {
+            "id": 1,
+            "bankNumber": 1,
+            "address_id": {
+              "id": 2,
+              "country": "Ukraine",
+              "city": "Lviv",
+              "home_address": "street 2, ap 22",
+              "postal_code": 79007,
+              "phone": 380963356350
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "expiredDate": "18-06-2025",
+      "cardNumber": 4639444295373721,
+      "cvv": 234,
+      "clients": {
+        "id": 3,
+        "person_id": {
+          "id": 4,
+          "first_name": "Hassie",
+          "last_name": "Heidenreich",
+          "passport_number": 540338,
+          "email": "emailHassie@gmail.com",
+          "address_id": {
+            "id": 10,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 12, ap 44/7",
+            "postal_code": 1023,
+            "phone": 380967423462
+          }
+        },
+        "client_type": "Physical person"
+      },
+      "bankAccountId": {
+        "id": 5,
+        "accountNumber": 656758767657,
+        "balance": 3335,
+        "accountType": "personal",
+        "accountDetailsId": {
+          "id": 4,
+          "ibanNumber": 5585237472192624379,
+          "bankId": {
+            "id": 2,
+            "bankNumber": 2,
+            "address_id": {
+              "id": 1,
+              "country": "Ukraine",
+              "city": "Kyiv",
+              "home_address": "street 1, ap 23",
+              "postal_code": 1033,
+              "phone": 380963456782
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "expiredDate": "06-11-2026",
+      "cardNumber": 4639234995632123,
+      "cvv": 745,
+      "clients": {
+        "id": 4,
+        "person_id": {
+          "id": 7,
+          "first_name": "Lessie",
+          "last_name": "Hartmann",
+          "passport_number": 758476,
+          "email": "emailLessie@gmail.com",
+          "address_id": {
+            "id": 13,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 29, ap 85/4",
+            "postal_code": 79002,
+            "phone": 380967568534
+          }
+        },
+        "client_type": "Physical person"
+      },
+      "bankAccountId": {
+        "id": 4,
+        "accountNumber": 890860600865,
+        "balance": 7543,
+        "accountType": "personal",
+        "accountDetailsId": {
+          "id": 5,
+          "ibanNumber": 1110030802046348748,
+          "bankId": {
+            "id": 3,
+            "bankNumber": 3,
+            "address_id": {
+              "id": 3,
+              "country": "Poland",
+              "city": "Warsaw",
+              "home_address": "street 3, ap 25",
+              "postal_code": 23589,
+              "phone": 482296876545
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "expiredDate": "11-08-2026",
+      "cardNumber": 1234567890123456,
+      "cvv": 321,
+      "clients": {
+        "id": 1,
+        "person_id": {
+          "id": 1,
+          "first_name": "Larissa",
+          "last_name": "Langosh",
+          "passport_number": 195969,
+          "email": "email1@gmail.com",
+          "address_id": {
+            "id": 4,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 78, ap 4/21",
+            "postal_code": 23597,
+            "phone": 482293252323
+          }
+        },
+        "client_type": "Physical person"
+      },
+      "bankAccountId": {
+        "id": 2,
+        "accountNumber": 642546723472,
+        "balance": 1245,
+        "accountType": "personal",
+        "accountDetailsId": {
+          "id": 3,
+          "ibanNumber": 2231466757283154637,
+          "bankId": {
+            "id": 2,
+            "bankNumber": 2,
+            "address_id": {
+              "id": 1,
+              "country": "Ukraine",
+              "city": "Kyiv",
+              "home_address": "street 1, ap 23",
+              "postal_code": 1033,
+              "phone": 380963456782
+            }
+          }
+        }
+      }
+    }
+  ],
+  "bankAccounts": [
+    {
+      "id": 1,
+      "accountNumber": 645325634754,
+      "balance": 8020,
+      "accountType": "personal",
+      "accountDetailsId": {
+        "id": 1,
+        "ibanNumber": 3632857917094142997,
+        "bankId": {
+          "id": 1,
+          "bankNumber": 1,
+          "address_id": {
+            "id": 2,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 2, ap 22",
+            "postal_code": 79007,
+            "phone": 380963356350
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "accountNumber": 642546723472,
+      "balance": 1245,
+      "accountType": "personal",
+      "accountDetailsId": {
+        "id": 3,
+        "ibanNumber": 2231466757283154637,
+        "bankId": {
+          "id": 2,
+          "bankNumber": 2,
+          "address_id": {
+            "id": 1,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 1, ap 23",
+            "postal_code": 1033,
+            "phone": 380963456782
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "accountNumber": 876456875679,
+      "balance": 6432,
+      "accountType": "personal",
+      "accountDetailsId": {
+        "id": 2,
+        "ibanNumber": 6238757078026116075,
+        "bankId": {
+          "id": 1,
+          "bankNumber": 1,
+          "address_id": {
+            "id": 2,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 2, ap 22",
+            "postal_code": 79007,
+            "phone": 380963356350
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "accountNumber": 890860600865,
+      "balance": 7543,
+      "accountType": "personal",
+      "accountDetailsId": {
+        "id": 5,
+        "ibanNumber": 1110030802046348748,
+        "bankId": {
+          "id": 3,
+          "bankNumber": 3,
+          "address_id": {
+            "id": 3,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 3, ap 25",
+            "postal_code": 23589,
+            "phone": 482296876545
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "accountNumber": 656758767657,
+      "balance": 3335,
+      "accountType": "personal",
+      "accountDetailsId": {
+        "id": 4,
+        "ibanNumber": 5585237472192624379,
+        "bankId": {
+          "id": 2,
+          "bankNumber": 2,
+          "address_id": {
+            "id": 1,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 1, ap 23",
+            "postal_code": 1033,
+            "phone": 380963456782
+          }
+        }
+      }
+    }
+  ],
+  "accountDetails": [
+    {
+      "id": 1,
+      "ibanNumber": 3632857917094142997,
+      "bankId": {
+        "id": 1,
+        "bankNumber": 1,
+        "address_id": {
+          "id": 2,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 2, ap 22",
+          "postal_code": 79007,
+          "phone": 380963356350
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ibanNumber": 6238757078026116075,
+      "bankId": {
+        "id": 1,
+        "bankNumber": 1,
+        "address_id": {
+          "id": 2,
+          "country": "Ukraine",
+          "city": "Lviv",
+          "home_address": "street 2, ap 22",
+          "postal_code": 79007,
+          "phone": 380963356350
+        }
+      }
+    },
+    {
+      "id": 3,
+      "ibanNumber": 2231466757283154637,
+      "bankId": {
+        "id": 2,
+        "bankNumber": 2,
+        "address_id": {
+          "id": 1,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 1, ap 23",
+          "postal_code": 1033,
+          "phone": 380963456782
+        }
+      }
+    },
+    {
+      "id": 4,
+      "ibanNumber": 5585237472192624379,
+      "bankId": {
+        "id": 2,
+        "bankNumber": 2,
+        "address_id": {
+          "id": 1,
+          "country": "Ukraine",
+          "city": "Kyiv",
+          "home_address": "street 1, ap 23",
+          "postal_code": 1033,
+          "phone": 380963456782
+        }
+      }
+    },
+    {
+      "id": 5,
+      "ibanNumber": 1110030802046348748,
+      "bankId": {
+        "id": 3,
+        "bankNumber": 3,
+        "address_id": {
+          "id": 3,
+          "country": "Poland",
+          "city": "Warsaw",
+          "home_address": "street 3, ap 25",
+          "postal_code": 23589,
+          "phone": 482296876545
+        }
+      }
+    }
+  ],
+  "banks": [
+    {
+      "id": 1,
+      "bankNumber": 1,
+      "address_id": {
+        "id": 2,
+        "country": "Ukraine",
+        "city": "Lviv",
+        "home_address": "street 2, ap 22",
+        "postal_code": 79007,
+        "phone": 380963356350
+      }
+    },
+    {
+      "id": 2,
+      "bankNumber": 2,
+      "address_id": {
+        "id": 1,
+        "country": "Ukraine",
+        "city": "Kyiv",
+        "home_address": "street 1, ap 23",
+        "postal_code": 1033,
+        "phone": 380963456782
+      }
+    },
+    {
+      "id": 3,
+      "bankNumber": 3,
+      "address_id": {
+        "id": 3,
+        "country": "Poland",
+        "city": "Warsaw",
+        "home_address": "street 3, ap 25",
+        "postal_code": 23589,
+        "phone": 482296876545
+      }
+    }
+  ],
+  "cashTransactions": [
+    {
+      "id": 1,
+      "cashIn": 1000,
+      "cashOut": 800,
+      "employeeId": {
+        "id": 1,
+        "bankId": {
+          "id": 1,
+          "bankNumber": 1,
+          "address_id": {
+            "id": 2,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 2, ap 22",
+            "postal_code": 79007,
+            "phone": 380963356350
+          }
+        },
+        "person_id": {
+          "id": 2,
+          "first_name": "Vickie",
+          "last_name": "Champlin",
+          "passport_number": 565189,
+          "email": "emailVickie@gmail.com",
+          "address_id": {
+            "id": 7,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 63, ap 85/12",
+            "postal_code": 23565,
+            "phone": 482245678234
+          }
+        },
+        "position": "Сashier",
+        "department": "Cash transactions",
+        "jobExperience": "Height",
+        "education": "Bachelor",
+        "salary": 500
+      }
+    },
+    {
+      "id": 2,
+      "cashIn": 2300,
+      "cashOut": 3222,
+      "employeeId": {
+        "id": 2,
+        "bankId": {
+          "id": 2,
+          "bankNumber": 2,
+          "address_id": {
+            "id": 1,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 1, ap 23",
+            "postal_code": 1033,
+            "phone": 380963456782
+          }
+        },
+        "person_id": {
+          "id": 5,
+          "first_name": "Maritza",
+          "last_name": "Schimmel",
+          "passport_number": 489902,
+          "email": "emailMaritza@gmail.com",
+          "address_id": {
+            "id": 11,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 10, ap 86/85",
+            "postal_code": 79007,
+            "phone": 380967886562
+          }
+        },
+        "position": "Сashier",
+        "department": "Cash transactions",
+        "jobExperience": "Low",
+        "education": "Bachelor",
+        "salary": 450
+      }
+    }
+  ],
+  "depositAccounts": [
+    {
+      "id": 2,
+      "clientId": {
+        "id": 2,
+        "person_id": {
+          "id": 3,
+          "first_name": "Brannon",
+          "last_name": "Wisozk",
+          "passport_number": 758424,
+          "email": "emailBrannon@gmail.com",
+          "address_id": {
+            "id": 9,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 5, ap 15/64",
+            "postal_code": 1043,
+            "phone": 380963463456
+          }
+        },
+        "client_type": "Legal entity"
+      },
+      "cash": 5000,
+      "depositPercent": 7,
+      "employeeId": {
+        "id": 4,
+        "bankId": {
+          "id": 2,
+          "bankNumber": 2,
+          "address_id": {
+            "id": 1,
+            "country": "Ukraine",
+            "city": "Kyiv",
+            "home_address": "street 1, ap 23",
+            "postal_code": 1033,
+            "phone": 380963456782
+          }
+        },
+        "person_id": {
+          "id": 8,
+          "first_name": "Madelynn",
+          "last_name": "Goldner",
+          "passport_number": 934748,
+          "email": "emailMadelynn@gmail.com",
+          "address_id": {
+            "id": 5,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 23, ap 2/3",
+            "postal_code": 23593,
+            "phone": 482234675684
+          }
+        },
+        "position": "Manager",
+        "department": "Deposits",
+        "jobExperience": "Medium",
+        "education": "Master",
+        "salary": 500
+      }
+    },
+    {
+      "id": 5,
+      "clientId": {
+        "id": 1,
+        "person_id": {
+          "id": 1,
+          "first_name": "Larissa",
+          "last_name": "Langosh",
+          "passport_number": 195969,
+          "email": "email1@gmail.com",
+          "address_id": {
+            "id": 4,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 78, ap 4/21",
+            "postal_code": 23597,
+            "phone": 482293252323
+          }
+        },
+        "client_type": "Physical person"
+      },
+      "cash": 2000,
+      "depositPercent": 5,
+      "employeeId": {
+        "id": 3,
+        "bankId": {
+          "id": 1,
+          "bankNumber": 1,
+          "address_id": {
+            "id": 2,
+            "country": "Ukraine",
+            "city": "Lviv",
+            "home_address": "street 2, ap 22",
+            "postal_code": 79007,
+            "phone": 380963356350
+          }
+        },
+        "person_id": {
+          "id": 6,
+          "first_name": "Junius",
+          "last_name": "Bartoletti",
+          "passport_number": 308254,
+          "email": "emailJunius@gmail.com",
+          "address_id": {
+            "id": 6,
+            "country": "Poland",
+            "city": "Warsaw",
+            "home_address": "street 12, ap 8/21",
+            "postal_code": 23587,
+            "phone": 482245745784
+          }
+        },
+        "position": "Manager",
+        "department": "Deposits",
+        "jobExperience": "Low",
+        "education": "Bachelor",
+        "salary": 400
+      }
+    }
+  ]
+}
